@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPICEORA · Gallery</title>
+  <!-- Favicon - mortar & pestle, warm saffron -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="shortcut icon" href="assets/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="tailwind.js"></script>
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#D98C2E',
+            paprika: '#B84A2E',
+            turmeric: '#E6B422',
+            cardamom: '#6B7F4B',
+            cinnamon: '#8B5A2B',
+            cream: '#FDF7F0',
+            stone: '#D9C5B2',
+            dusk: '#A65A3A',
+            sage: '#9BB87F',
+            sand: '#EADCCB',
+            pepper: '#3D2B1F',
+          },
+          fontFamily: {
+            'display': ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            'body': ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'spin-slow': 'spinSlow 14s linear infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+          },
+          keyframes: {
+            floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            scaleIn: { '0%': { transform: 'scale(0.95)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+          },
+          backgroundImage: {
+            'warm-pattern': 'radial-gradient(circle at 30% 40%, rgba(217, 140, 46, 0.08) 0%, transparent 70%)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .dark body {
+      background-color: #2E1F1A;
+      color: #FDF7F0;
+    }
+    .dark .text-\[\#3D2B1F\] { color: #FDF7F0; }
+
+    .dark nav.fixed {
+      background-color: rgba(46, 31, 26, 0.95) !important;
+      border-color: rgba(217, 140, 46, 0.2) !important;
+    }
+    nav:not(.fixed), .dark nav:not(.fixed) {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    body::-webkit-scrollbar { width: 6px; }
+    body::-webkit-scrollbar-track { background: #FDF7F0; border-radius: 10px; }
+    body::-webkit-scrollbar-thumb { background: #D98C2E; border-radius: 10px; }
+
+    .card-spice {
+      background: white;
+      border-radius: 28px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 140, 46, 0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .dark .card-spice {
+      background: #3D2C25;
+      border-color: rgba(217, 140, 46, 0.25);
+    }
+    .card-spice:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(217, 140, 46, 0.3);
+      border-color: #D98C2E;
+    }
+
+    .btn-primary {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(217, 140, 46, 0.3);
+    }
+    .btn-primary:hover {
+      background-color: #B84A2E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(217, 140, 46, 0.4);
+      color: white;
+    }
+    .btn-outline {
+      border: 1.5px solid #D98C2E;
+      color: #D98C2E;
+      background: transparent;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      transform: translateY(-2px);
+    }
+    .dark .btn-outline:hover {
+      background-color: #D98C2E !important;
+      color: #FDF7F0 !important;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background-color: #D98C2E;
+      transition: width 0.25s ease;
+      border-radius: 3px;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .dropdown-studio { position: relative; }
+    .dropdown-studio-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 18px;
+      padding: 0.5rem 0;
+      box-shadow: 0 18px 32px rgba(0,0,0,0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+      z-index: 1000;
+      border: 1px solid rgba(217, 140, 46, 0.2);
+    }
+    .dark .dropdown-studio-menu { background: #3D2C25; border-color: rgba(217, 140, 46, 0.3); }
+    .dropdown-studio:hover .dropdown-studio-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      transition: all 0.2s;
+      color: #3D2B1F;
+    }
+    .dark .dropdown-item { color: #FDF7F0; }
+    .dropdown-item:hover {
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      padding-left: 1.7rem;
+    }
+    .dropdown-item i { margin-right: 0.75rem; width: 20px; }
+
+    .mobile-menu-studio {
+      background: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 0 0 24px 24px;
+    }
+    .dark .mobile-menu-studio { background: #3D2C25; }
+    .mobile-menu-studio.open { max-height: 80vh; overflow-y: auto; }
+
+    .stat-badge {
+      background: white;
+      border-radius: 28px;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(217, 140, 46, 0.2);
+      text-align: center;
+    }
+    .dark .stat-badge { background: #3D2C25; }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      border-left: 5px solid #D98C2E;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+    }
+    .dark .testimonial-card { background: #3D2C25; }
+
+    .social-icon-studio {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      transition: all 0.3s;
+    }
+    .social-icon-studio:hover {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      transform: translateY(-3px);
+    }
+    .dark .social-icon-studio { background-color: #3D2C25; color: #FDF7F0; }
+    .dark .social-icon-studio:hover { background-color: #D98C2E; color: #FDF7F0; }
+
+    .avatar-circle {
+      background-color: #D98C2E;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #FDF7F0;
+    }
+
+    [dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    [dir="rtl"] .border-l-4 { border-left-width: 0 !important; border-right-width: 4px !important; }
+    [dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+    html[dir="rtl"] .dropdown-studio-menu { left: auto; right: 0; }
+    [dir="rtl"] .dropdown-item i { margin-right: 0; margin-left: 0.75rem; }
+    [dir="rtl"] .dropdown-item:hover { padding-left: 1.4rem; padding-right: 1.7rem; }
+    [dir="rtl"] .testimonial-card { border-left: none; border-right: 5px solid #D98C2E; }
+
+    .flavor-tag {
+      background: rgba(217, 140, 46, 0.15);
+      border-radius: 100px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #3D2B1F;
+    }
+    .dark .flavor-tag { background: rgba(217, 140, 46, 0.2); color: #FDF7F0; }
+
+    .spice-underline {
+      background: linear-gradient(120deg, #E6B422 0%, #E6B422 40%, transparent 80%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.3em;
+      background-position: 0 88%;
+    }
+
+    /* ===== GALLERY PAGE SPECIFIC STYLES ===== */
+    .gallery-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      background: transparent;
+    }
+    .gallery-pill:hover { transform: translateY(-2px); }
+    .gallery-pill.active {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      box-shadow: 0 6px 16px rgba(217, 140, 46, 0.35);
+    }
+    .gallery-pill:not(.active) {
+      color: #3D2B1F;
+      border-color: rgba(217, 140, 46, 0.25);
+    }
+    .dark .gallery-pill:not(.active) {
+      color: #FDF7F0;
+      border-color: rgba(217, 140, 46, 0.3);
+    }
+    .gallery-pill:not(.active):hover {
+      border-color: #D98C2E;
+      color: #D98C2E;
+    }
+
+    /* Gallery grid - uniform equal size cards */
+    .masonry {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .masonry {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .masonry {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .masonry-item {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      display: block;
+      aspect-ratio: 4 / 3;
+      background: #3A2820;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .masonry-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 45px -15px rgba(217, 140, 46, 0.4);
+    }
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .masonry-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .masonry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,18,11,0.92) 0%, rgba(26,18,11,0.35) 50%, transparent 100%);
+      opacity: 1;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      pointer-events: none;
+    }
+    .masonry-item:hover .masonry-overlay {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .masonry-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(253, 247, 240, 0.92);
+      backdrop-filter: blur(8px);
+      color: #3D2B1F;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.4s ease;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .masonry-item:hover .masonry-tag {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    /* Category banner — Top featured image tiles */
+    .gallery-hero-tile {
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 280px;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+    }
+    .gallery-hero-tile:hover {
+      transform: scale(1.02);
+    }
+    .gallery-hero-tile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .gallery-hero-tile:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,18,11,0.95) 0%, rgba(26,18,11,0.4) 50%, rgba(26,18,11,0.1) 100%);
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      opacity: 1;
+    }
+    .gallery-hero-content {
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: none;
+    }
+    .gallery-hero-tile:hover .gallery-hero-overlay {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .gallery-hero-tile:hover .gallery-hero-content {
+      opacity: 0;
+      transform: translateY(8px);
+      visibility: hidden;
+    }
+
+    /* Film Main Viewer hover-to-hide layout */
+    .film-main-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .film-main-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #1A120B 0%, rgba(26,18,11,0.4) 40%, transparent 100%);
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      opacity: 1;
+      pointer-events: none;
+    }
+    .film-main-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: none;
+    }
+    .film-main-card:hover .film-main-overlay {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .film-main-card:hover .film-main-caption {
+      opacity: 0;
+      transform: translateY(8px);
+      visibility: hidden;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(13, 9, 7, 0.96);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox.open {
+      display: flex;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .lightbox-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 90vw;
+      max-height: 90vh;
+      pointer-events: auto;
+    }
+    .lightbox-img {
+      max-width: 88vw;
+      max-height: calc(82vh - 5rem);
+      border-radius: 20px;
+      object-fit: contain;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(253, 247, 240, 0.1);
+      border: 1px solid rgba(253, 247, 240, 0.2);
+      color: #FDF7F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 210;
+    }
+    .lightbox-close:hover {
+      background: #D98C2E;
+      transform: rotate(90deg);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(253, 247, 240, 0.1);
+      border: 1px solid rgba(253, 247, 240, 0.2);
+      color: #FDF7F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 210;
+    }
+    .lightbox-nav:hover {
+      background: #D98C2E;
+    }
+    .lightbox-nav-prev {
+      left: 1.5rem;
+    }
+    .lightbox-nav-next {
+      right: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .lightbox-nav-prev { left: 0.5rem; width: 40px; height: 40px; }
+      .lightbox-nav-next { right: 0.5rem; width: 40px; height: 40px; }
+      .lightbox-close { top: 1rem; right: 1rem; width: 40px; height: 40px; }
+      .lightbox-img { max-height: calc(75vh - 4.5rem); max-width: 92vw; border-radius: 14px; }
+    }
+    .lightbox-caption {
+      margin-top: 1rem;
+      color: #FDF7F0;
+      text-align: center;
+      max-width: min(88vw, 750px);
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    /* Film strip */
+    .film-strip {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+    }
+    .film-strip::-webkit-scrollbar { height: 4px; }
+    .film-strip::-webkit-scrollbar-track { background: rgba(217,140,46,0.1); border-radius: 4px; }
+    .film-strip::-webkit-scrollbar-thumb { background: #D98C2E; border-radius: 4px; }
+
+    .film-frame {
+      flex-shrink: 0;
+      width: 120px;
+      height: 80px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      opacity: 0.6;
+    }
+    .film-frame:hover, .film-frame.active {
+      opacity: 1;
+      border-color: #D98C2E;
+      transform: scale(1.05);
+    }
+    .film-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Scrollbar hide */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="warm-pattern">
+
+<!-- ======== NAVIGATION ======== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 dark:bg-[#2E1F1A]/95 backdrop-blur-md border-b border-cream/40 dark:border-cream/10 shadow-sm">
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0 relative">
+      <!-- Logo -->
+      <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+        <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 overflow-hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" class="w-full h-full p-1.5" fill="none">
+            <path d="M8 22 Q8 30 18 30 Q28 30 28 22 L26 22 Q26 27 18 27 Q10 27 10 22 Z" fill="white" opacity="0.9"/>
+            <ellipse cx="18" cy="22" rx="8" ry="2.5" fill="white" opacity="0.95"/>
+            <rect x="16.5" y="10" width="3" height="12" rx="1.5" fill="white" opacity="0.85"/>
+            <circle cx="18" cy="10" r="3" fill="white" opacity="0.9"/>
+            <ellipse cx="26" cy="12" rx="3.5" ry="2" transform="rotate(30 26 12)" fill="white" opacity="0.6"/>
+            <ellipse cx="29" cy="17" rx="2.8" ry="1.6" transform="rotate(-15 29 17)" fill="white" opacity="0.5"/>
+            <circle cx="12" cy="26" r="1" fill="white" opacity="0.5"/>
+            <circle cx="22" cy="27" r="1.2" fill="white" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center leading-none">
+          <span class="text-xl md:text-2xl font-display font-extrabold tracking-wider"><span class="text-[#3D2B1F] dark:text-cream">SPICE</span><span class="text-saffron">ORA</span></span>
+          <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-saffron mt-0.5">Spices &amp; Condiments</span>
+        </div>
+      </a>
+
+      <!-- Centered Desktop Navigation -->
+      <div class="hidden xl:flex items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2">
+        <div class="dropdown-studio">
+          <button class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition flex items-center gap-1 py-2 whitespace-nowrap text-base">
+            Home <i class="fas fa-chevron-down text-xs ms-1"></i>
+          </button>
+          <div class="dropdown-studio-menu">
+            <a class="dropdown-item" href="index.html"> Home 1</a>
+            <a class="dropdown-item" href="home2.html"> Home 2</a>
+          </div>
+        </div>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="about.html">About</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="products.html">Products</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="recipes.html">Recipes</a>
+        <a class="nav-link text-saffron font-medium transition whitespace-nowrap text-base" href="gallery.html">Gallery</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="custom.html">Custom &amp; Bulk</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="contact.html">Contact</a>
+      </div>
+
+      <!-- Desktop actions & Mobile toggle -->
+      <div class="flex items-center gap-3 xl:gap-4 ms-auto">
+        <a href="contact.html" class="hidden xl:inline-flex btn-primary py-2 px-5 rounded-full text-sm font-medium items-center gap-2 shadow-md hover:scale-105 transition">
+          <i class="fas fa-envelope"></i> Enquire
+        </a>
+        <button id="theme-toggle" class="hidden xl:flex w-10 h-10 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron hover:scale-110 transition items-center justify-center">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i>
+        </button>
+        <button id="rtl-toggle" class="hidden xl:flex w-10 h-10 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron hover:scale-110 transition items-center justify-center font-bold text-base">
+          ⇄
+        </button>
+
+        <!-- Mobile toggle -->
+        <button id="mobile-toggle" class="xl:hidden w-10 h-10 rounded-full bg-saffron text-cream flex items-center justify-center shadow-md">
+          <i class="fas fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu-studio xl:hidden">
+      <div class="py-4 px-3 space-y-1">
+        <div class="py-1">
+          <button onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition cursor-pointer">
+            <span>Home</span>
+            <i id="home-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+          </button>
+          <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+            <a class="block py-2.5 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="index.html">Home 1</a>
+            <a class="block py-2.5 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="home2.html">Home 2</a>
+          </div>
+        </div>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="about.html">About</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="products.html">Products</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="recipes.html">Recipes</a>
+        <a class="block py-3 px-4 font-medium text-saffron border-l-4 border-saffron bg-saffron/5 rounded-xl transition" href="gallery.html">Gallery</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="custom.html">Custom &amp; Bulk</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="contact.html">Contact</a>
+        <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream/60 dark:border-cream/10">
+          <a class="text-center btn-primary py-2.5 rounded-full font-medium shadow-md flex items-center justify-center gap-2" href="contact.html">
+            <i class="fas fa-envelope"></i> Enquire
+          </a>
+          <div class="flex gap-3">
+            <button id="mobile-theme-toggle" class="flex-1 py-2 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron text-sm font-medium flex items-center gap-2 justify-center">
+              <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="flex-1 py-2 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron text-sm font-medium flex items-center gap-2 justify-center">
+              ⇄ RTL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- ==================== GALLERY PAGE CONTENT =================== -->
+<!-- ============================================================ -->
+
+<!-- ===== 1. GALLERY HERO — FULL BLEED MOSAIC ===== -->
+<section class="relative pt-32 pb-20 bg-[#1A120B] overflow-hidden text-center">
+  <div class="absolute inset-0 opacity-20">
+    <img src="assets/spice-market-sacks.jpg" alt="Spice texture" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1A120B]/90 via-[#1A120B]/70 to-[#1A120B]"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
+    <div class="max-w-3xl flex flex-col items-center">
+      <nav class="bg-transparent flex items-center justify-center gap-2 text-cream/50 text-xs font-medium mb-6">
+        <a href="index.html" class="hover:text-saffron transition">Home</a>
+        <i class="fas fa-chevron-right text-[8px]"></i>
+        <span class="text-saffron">Gallery</span>
+      </nav>
+
+      <span class="inline-flex items-center justify-center gap-3 text-saffron text-xs font-bold tracking-[0.3em] uppercase mb-4">
+        <span class="w-8 h-[1px] bg-saffron inline-block"></span>
+        Visual Journal
+        <span class="w-8 h-[1px] bg-saffron inline-block"></span>
+      </span>
+      <h1 class="text-5xl md:text-7xl font-display font-extrabold text-cream leading-[1.05] mb-5">
+        A world in <span class="text-saffron">every grain.</span>
+      </h1>
+      <p class="text-cream/60 text-base md:text-lg max-w-xl leading-relaxed mb-8 mx-auto">
+        From harvest fields to granite mills to the final plated dish — 
+        a photographic journey through the life of a spice.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#gallery-grid" class="btn-primary px-8 py-3 text-sm tracking-wide font-semibold inline-flex items-center gap-2">
+          <i class="fas fa-images text-xs"></i>
+          View Collection
+        </a>
+        <a href="products.html" class="btn-outline px-8 py-3 text-sm tracking-wide font-semibold inline-flex items-center gap-2 !border-saffron/40 !text-cream hover:!bg-saffron hover:!text-cream transition">
+          <i class="fas fa-shopping-bag text-xs"></i>
+          Explore Spices
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. FEATURED CATEGORY TILES ===== -->
+<section class="py-12 bg-[#FDF7F0] dark:bg-[#2E1F1A]">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-5">
+      <!-- Tile 1 -->
+      <div class="gallery-hero-tile md:col-span-2" onclick="openLightbox('assets/spice-grinding-mortar.jpg','Harvest — Kerala, dawn harvest season')">
+        <img src="assets/spice-grinding-mortar.jpg" alt="Harvest">
+        <div class="gallery-hero-overlay"></div>
+        <div class="relative z-10 p-8 gallery-hero-content">
+          <span class="flavor-tag mb-3 inline-block">Field Notes</span>
+          <h3 class="text-cream font-display text-3xl font-bold mb-1">The Harvest</h3>
+          <p class="text-cream/60 text-sm">Kerala · Dawn harvest season</p>
+        </div>
+      </div>
+
+      <!-- Tile 2 -->
+      <div class="gallery-hero-tile" onclick="openLightbox('assets/spice-composition.jpg','Roasting — woodfire micro-batches')">
+        <img src="assets/spice-composition.jpg" alt="Roasting">
+        <div class="gallery-hero-overlay"></div>
+        <div class="relative z-10 p-6 gallery-hero-content">
+          <span class="flavor-tag mb-3 inline-block">Craft</span>
+          <h3 class="text-cream font-display text-2xl font-bold mb-1">The Roast</h3>
+          <p class="text-cream/60 text-xs">Woodfire micro-batches</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. FILTER PILLS ===== -->
+<section class="relative bg-[#FDF7F0] dark:bg-[#2E1F1A] border-b border-saffron/15 py-8 transition-colors duration-300">
+  <div class="container mx-auto px-6 text-center">
+    <!-- Heading Name -->
+    <div class="mb-4">
+      <span class="inline-flex items-center justify-center gap-2 text-saffron text-xs font-bold tracking-[0.25em] uppercase mb-1">
+        <span class="w-6 h-[1px] bg-saffron inline-block"></span>
+        Curated Archives
+        <span class="w-6 h-[1px] bg-saffron inline-block"></span>
+      </span>
+      <h2 class="text-2xl md:text-3xl font-display font-extrabold text-[#3D2B1F] dark:text-cream leading-tight">
+        Filter by <span class="text-saffron">Category</span>
+      </h2>
+    </div>
+
+    <!-- Centered Filter Pills -->
+    <div class="flex items-center justify-center flex-wrap gap-2.5 md:gap-3">
+      <button class="gallery-pill active" data-cat="all"><i class="fas fa-th text-xs"></i> All Photos</button>
+      <button class="gallery-pill" data-cat="harvest"><i class="fas fa-seedling text-xs"></i> Harvest</button>
+      <button class="gallery-pill" data-cat="craft"><i class="fas fa-mortar-pestle text-xs"></i> Craft</button>
+      <button class="gallery-pill" data-cat="atelier"><i class="fas fa-store text-xs"></i> Atelier</button>
+      <button class="gallery-pill" data-cat="dishes"><i class="fas fa-utensils text-xs"></i> Dishes</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. MASONRY GALLERY ===== -->
+<section class="py-14 bg-[#FAF3EC] dark:bg-[#251912]">
+  <div class="container mx-auto px-6">
+
+    <!-- Gallery count -->
+    <div class="flex items-center justify-between mb-8">
+      <p class="text-sm text-[#3D2B1F]/50 dark:text-cream/50">
+        <span class="font-bold text-[#3D2B1F] dark:text-cream" id="photo-count">7</span> photographs
+      </p>
+      <button id="shuffle-btn" onclick="shuffleGallery()" class="text-xs text-saffron font-semibold hover:underline inline-flex items-center gap-1.5 cursor-pointer">
+        <i class="fas fa-random"></i> Shuffle
+      </button>
+    </div>
+
+    <!-- Masonry -->
+    <div class="masonry" id="gallery-grid">
+
+      <!-- 1 -->
+      <a class="masonry-item" data-cat="harvest" onclick="openLightbox('assets/spice-grinding-mortar.jpg','Cardamom pods — highland estate, Kerala')">
+        <img src="assets/spice-grinding-mortar.jpg" alt="Cardamom pods" loading="lazy">
+        <span class="masonry-tag">Harvest</span>
+        <div class="masonry-overlay">
+          <h3 class="text-cream font-display text-lg font-bold leading-tight">Cardamom pods</h3>
+          <p class="text-cream/60 text-xs">Highland estate, Kerala</p>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="masonry-item" data-cat="craft" onclick="openLightbox('assets/spice-market-sacks.jpg','Garam masala — 12-spice blend ready for milling')">
+        <img src="assets/spice-market-sacks.jpg" alt="Garam masala blend" loading="lazy">
+        <span class="masonry-tag">Craft</span>
+        <div class="masonry-overlay">
+          <h3 class="text-cream font-display text-lg font-bold leading-tight">The 12-spice blend</h3>
+          <p class="text-cream/60 text-xs">Ready for the granite mill</p>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="masonry-item" data-cat="dishes" onclick="openLightbox('assets/recipe-chai-glass.jpg','Slow-cooked garam masala curry — plated')">
+        <img src="assets/recipe-chai-glass.jpg" alt="Garam masala curry" loading="lazy">
+        <span class="masonry-tag">Dishes</span>
+        <div class="masonry-overlay">
+          <h3 class="text-cream font-display text-lg font-bold leading-tight">Signature curry</h3>
+          <p class="text-cream/60 text-xs">Plated at the atelier</p>
+        </div>
+      </a>
+
+      <!-- 4: Replaced People with Tellicherry Pepper -->
+      <a class="masonry-item" data-cat="harvest" onclick="openLightbox('assets/p1.jpg','Tellicherry black pepper — sun-dried on the Malabar Coast')">
+        <img src="assets/p1.jpg" alt="Tellicherry Black Pepper" loading="lazy">
+        <span class="masonry-tag">Harvest</span>
+        <div class="masonry-overlay">
+          <h3 class="text-cream font-display text-lg font-bold leading-tight">Tellicherry Pepper</h3>
+          <p class="text-cream/60 text-xs">Sun-dried on the Malabar Coast</p>
+        </div>
+      </a>
+
+      <!-- 5: Authentic Spice Atelier -->
+      <a class="masonry-item" data-cat="atelier" onclick="openLightbox('assets/spice-atelier-market.jpg','The Spice Atelier — stone mill and heritage spice library')">
+        <img src="assets/spice-atelier-market.jpg" alt="The Spice Atelier" loading="lazy">
+        <span class="masonry-tag">Atelier</span>
+        <div class="masonry-overlay">
+          <h3 class="text-cream font-display text-lg font-bold leading-tight">The Spice Atelier</h3>
+          <p class="text-cream/60 text-xs">Where the craft comes alive</p>
+        </div>
+      </a>
+
+      <!-- 6: Kashmiri Saffron with p2.jpg -->
+      <a class="masonry-item" data-cat="craft" onclick="openLightbox('assets/p2.jpg','Kashmiri saffron — hand-picked at dawn')">
+        <img src="assets/p2.jpg" alt="Kashmiri Saffron threads" loading="lazy">
+        <span class="masonry-tag">Craft</span>
+        <div class="masonry-overlay">
+          <h3 class="text-cream font-display text-lg font-bold leading-tight">Kashmiri saffron</h3>
+          <p class="text-cream/60 text-xs">Hand-picked at dawn</p>
+        </div>
+      </a>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. ATELIER IN MOTION — FILM STRIP ===== -->
+<section class="py-20 bg-[#1A120B] dark:bg-[#0D0907] relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(217,140,46,0.06),transparent_65%)]"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="inline-flex items-center gap-2 text-saffron text-xs font-bold tracking-[0.3em] uppercase mb-4">
+          <span class="w-8 h-[1px] bg-saffron"></span>
+          Atelier in Motion
+        </span>
+        <h2 class="text-3xl md:text-5xl font-display font-extrabold text-cream leading-[1.05]">
+          Behind the <span class="text-saffron">grind.</span>
+        </h2>
+      </div>
+      <p class="text-cream/50 max-w-sm text-sm leading-relaxed">
+        A film strip of the daily rhythm inside our atelier — from the first roast to the final seal.
+      </p>
+    </div>
+
+    <!-- Film strip -->
+    <div class="film-strip" id="film-strip">
+      <div class="film-frame active" onclick="changeFilm(this,'assets/spice-market-sacks.jpg','The 12-spice blend')">
+        <img src="assets/spice-market-sacks.jpg" alt="Frame 1">
+      </div>
+      <div class="film-frame" onclick="changeFilm(this,'assets/spice-grinding-mortar.jpg','Cardamom pods, Kerala')">
+        <img src="assets/spice-grinding-mortar.jpg" alt="Frame 2">
+      </div>
+      <div class="film-frame" onclick="changeFilm(this,'assets/spice-composition.jpg','Woodfire roasting')">
+        <img src="assets/spice-composition.jpg" alt="Frame 3">
+      </div>
+      <div class="film-frame" onclick="changeFilm(this,'assets/stone-mill.jpg','The stone mill')">
+        <img src="assets/stone-mill.jpg" alt="Frame 4">
+      </div>
+      <div class="film-frame" onclick="changeFilm(this,'assets/spice-atelier-mortar.jpg','The tasting table')">
+        <img src="assets/spice-atelier-mortar.jpg" alt="Frame 5">
+      </div>
+      <div class="film-frame" onclick="changeFilm(this,'assets/p2.jpg','Kashmiri saffron')">
+        <img src="assets/p2.jpg" alt="Frame 6">
+      </div>
+      <div class="film-frame" onclick="changeFilm(this,'assets/spice-atelier-market.jpg','The spice library')">
+        <img src="assets/spice-atelier-market.jpg" alt="Frame 7">
+      </div>
+    </div>
+
+    <!-- Main viewer -->
+    <div class="mt-6 rounded-[28px] overflow-hidden relative border border-cream/10 shadow-2xl film-main-card cursor-pointer">
+      <img id="film-main" src="assets/spice-market-sacks.jpg" alt="Atelier view" class="w-full h-[400px] md:h-[520px] object-cover">
+      <div class="film-main-overlay"></div>
+      <div class="film-main-caption">
+        <span class="text-saffron text-xs font-bold tracking-[0.2em] uppercase block mb-2">Now Viewing</span>
+        <p id="film-caption" class="text-cream font-display text-2xl md:text-3xl font-bold">The 12-spice blend</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. INSTAGRAM / COMMUNITY CTA ===== -->
+<section class="py-20 bg-[#FAF3EC] dark:bg-[#251912]">
+  <div class="container mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-saffron/15 flex items-center justify-center">
+        <i class="fab fa-instagram text-saffron text-2xl"></i>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-[#3D2B1F] dark:text-cream leading-[1.1] mb-4">
+        Tag us in your<br/>
+        <span class="text-saffron">kitchen creations.</span>
+      </h2>
+      <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-base md:text-lg max-w-lg mx-auto mb-8 leading-relaxed">
+        We love seeing what you cook. Tag <span class="font-bold text-saffron">@spiceora</span> or use 
+        <span class="font-bold text-saffron">#SpiceoraKitchen</span> and we might feature you here.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#" class="btn-primary px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-lg">
+          <i class="fab fa-instagram"></i> Follow @spiceora
+        </a>
+        <a href="contact.html" class="btn-outline px-8 py-3.5 rounded-full inline-flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Submit a Photo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. VISIT / ATELIER HOURS ===== -->
+<section class="py-20 bg-saffron dark:bg-[#2E1F1A] relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-cream/5"></div>
+  <div class="absolute -bottom-20 -left-16 w-64 h-64 rounded-full bg-cream/5"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 text-cream/70 text-xs font-bold tracking-[0.3em] uppercase mb-4">
+          <span class="w-8 h-[1px] bg-cream/50"></span>
+          Visit Us
+        </span>
+        <h2 class="text-3xl md:text-5xl font-display font-extrabold text-cream leading-[1.05] mb-5">
+          See it for<br/>yourself.
+        </h2>
+        <p class="text-cream/70 text-base leading-relaxed mb-8 max-w-md">
+          The atelier is open to the public. Watch the granite mill turn, 
+          smell the woodfire roast, and taste the difference.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 text-cream">
+            <span class="w-10 h-10 rounded-full bg-cream/15 flex items-center justify-center shrink-0">
+              <i class="fas fa-map-marker-alt text-sm"></i>
+            </span>
+            <span class="text-sm">42 Harvest Lane, Old Market District</span>
+          </div>
+          <div class="flex items-center gap-4 text-cream">
+            <span class="w-10 h-10 rounded-full bg-cream/15 flex items-center justify-center shrink-0">
+              <i class="fas fa-clock text-sm"></i>
+            </span>
+            <span class="text-sm">Mon–Sat · 9am – 6pm</span>
+          </div>
+          <div class="flex items-center gap-4 text-cream">
+            <span class="w-10 h-10 rounded-full bg-cream/15 flex items-center justify-center shrink-0">
+              <i class="fas fa-phone text-sm"></i>
+            </span>
+            <span class="text-sm">(555) 273-SPICE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative rounded-[36px] overflow-hidden shadow-2xl">
+        <img src="assets/spice-atelier-market.jpg" alt="Spice atelier" class="w-full h-[400px] object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1A120B]/70 via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <a href="contact.html" class="bg-cream text-saffron font-bold px-7 py-3 rounded-full hover:scale-105 transition shadow-lg inline-flex items-center gap-2 w-full justify-center">
+            <i class="fas fa-calendar-check"></i> Book a Tasting
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ================== END GALLERY PAGE CONTENT ================= -->
+<!-- ============================================================ -->
+
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" class="lightbox" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image">
+    <i class="fas fa-times text-lg"></i>
+  </button>
+  <button class="lightbox-nav lightbox-nav-prev" onclick="event.stopPropagation(); navLightbox(-1)" aria-label="Previous image">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="" class="lightbox-img">
+    <div class="lightbox-caption">
+      <p id="lightbox-caption" class="font-display text-xl md:text-2xl font-bold text-cream drop-shadow-sm"></p>
+      <p class="text-cream/70 text-xs md:text-sm mt-1" id="lightbox-counter"></p>
+    </div>
+  </div>
+  <button class="lightbox-nav lightbox-nav-next" onclick="event.stopPropagation(); navLightbox(1)" aria-label="Next image">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+
+<!-- ======== FOOTER ======== -->
+<footer class="bg-cream dark:bg-[#2E1F1A] text-[#3D2B1F] dark:text-cream pt-16 pb-8 border-t-4 border-saffron transition-colors duration-300">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="text-center md:text-start">
+        <a href="index.html" class="inline-flex items-center justify-center md:justify-start gap-3 mb-6 group hover:opacity-90 transition">
+          <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-xl flex items-center justify-center shadow-lg overflow-hidden group-hover:scale-105 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" class="w-full h-full p-1.5" fill="none">
+              <path d="M8 22 Q8 30 18 30 Q28 30 28 22 L26 22 Q26 27 18 27 Q10 27 10 22 Z" fill="white" opacity="0.9"/>
+              <ellipse cx="18" cy="22" rx="8" ry="2.5" fill="white" opacity="0.95"/>
+              <rect x="16.5" y="10" width="3" height="12" rx="1.5" fill="white" opacity="0.85"/>
+              <circle cx="18" cy="10" r="3" fill="white" opacity="0.9"/>
+              <ellipse cx="26" cy="12" rx="3.5" ry="2" transform="rotate(30 26 12)" fill="white" opacity="0.6"/>
+              <ellipse cx="29" cy="17" rx="2.8" ry="1.6" transform="rotate(-15 29 17)" fill="white" opacity="0.5"/>
+              <circle cx="12" cy="26" r="1" fill="white" opacity="0.5"/>
+              <circle cx="22" cy="27" r="1.2" fill="white" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="flex flex-col text-left leading-none">
+            <span class="text-xl md:text-2xl font-display font-extrabold tracking-wider"><span class="text-[#3D2B1F] dark:text-cream">SPICE</span><span class="text-saffron">ORA</span></span>
+            <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-saffron mt-0.5">Spices &amp; Condiments</span>
+          </div>
+        </a>
+        <p class="mb-5 text-[#3D2B1F] dark:text-cream text-sm">Heritage spice blends &amp; condiments. Stone-ground, small-batch, full of aroma.</p>
+        <div class="flex justify-center md:justify-start gap-3">
+          <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon-studio"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Explore</h4>
+        <ul class="space-y-2">
+          <li><a href="products.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Products</a></li>
+          <li><a href="recipes.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Recipes</a></li>
+          <li><a href="custom.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Custom &amp; Bulk</a></li>
+          <li><a href="gallery.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Community</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">About</a></li>
+          <li><a href="contact.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Contact</a></li>
+          <li><a href="#" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Careers</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Spice Atelier</h4>
+        <ul class="space-y-3">
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-map-marker-alt text-saffron mt-1"></i><span>42 Harvest Lane, Old Market District</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-phone text-saffron"></i><span>(555) 273-SPICE</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-envelope text-saffron"></i><span>hello@spiceora.com</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream text-sm"><i class="fas fa-clock text-saffron"></i><span>Mon–Sat 9am – 6pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-cream/60 dark:border-cream/10 text-center text-sm text-[#3D2B1F] dark:text-cream">
+      <p>&copy; 2026 SPICEORA · Spices &amp; Condiments. <i class="fas fa-mortar-pestle text-saffron mx-1"></i> Crafted with spice &amp; soul.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== SCRIPTS ======== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle
+    const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+    themeBtns.forEach(btn => {
+      btn?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      });
+    });
+    if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+    // RTL
+    function setRTL(isRTL) {
+      const html = document.documentElement;
+      if (isRTL === 'rtl' || isRTL === true) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); } 
+      else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+    }
+    const savedDir = localStorage.getItem('dir');
+    if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+    else document.documentElement.setAttribute('dir', 'ltr');
+
+    const rtlBtn = document.getElementById('rtl-toggle');
+    if (rtlBtn) {
+      rtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir');
+        setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+      });
+    }
+    const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+    if (mobileRtlBtn) {
+      mobileRtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir');
+        setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        if (mobileMenu && mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          if (mobileToggle && mobileToggle.querySelector('i')) {
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+          }
+        }
+      });
+    }
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        const icon = mobileToggle.querySelector('i');
+        if (mobileMenu.classList.contains('open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          if (mobileToggle.querySelector('i')) {
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Gallery category filter
+    const pills = document.querySelectorAll('.gallery-pill');
+    const items = document.querySelectorAll('#gallery-grid .masonry-item');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const cat = pill.dataset.cat;
+        let visibleCount = 0;
+        items.forEach(item => {
+          if (cat === 'all' || item.dataset.cat === cat) {
+            item.style.display = 'block';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        const counter = document.getElementById('photo-count');
+        if (counter) counter.textContent = visibleCount;
+      });
+    });
+
+    // Film strip
+    window.changeFilm = function(el, src, caption) {
+      document.querySelectorAll('.film-frame').forEach(f => f.classList.remove('active'));
+      el.classList.add('active');
+      const main = document.getElementById('film-main');
+      const cap = document.getElementById('film-caption');
+      if (main) {
+        main.style.opacity = '0.3';
+        setTimeout(() => {
+          main.src = src;
+          main.style.opacity = '1';
+        }, 150);
+      }
+      if (cap) cap.textContent = caption;
+    };
+
+    // Shuffle gallery
+    window.shuffleGallery = function() {
+      const grid = document.getElementById('gallery-grid');
+      if (!grid) return;
+      const items = Array.from(grid.children);
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        grid.appendChild(items[j]);
+      }
+    };
+
+    // Lightbox
+    let lightboxImages = [];
+    let currentIndex = 0;
+
+    window.openLightbox = function(src, caption) {
+      lightboxImages = Array.from(document.querySelectorAll('#gallery-grid .masonry-item')).map(item => {
+        const img = item.querySelector('img');
+        const cap = item.querySelector('.masonry-overlay h3')?.textContent?.trim() || '';
+        const sub = item.querySelector('.masonry-overlay p')?.textContent?.trim() || '';
+        const rawSrc = img ? (img.getAttribute('src') || img.src) : '';
+        return { 
+          src: rawSrc.includes('w=800') ? rawSrc.replace('w=800', 'w=1600') : rawSrc, 
+          caption: cap, 
+          sub: sub 
+        };
+      });
+      const cleanSrc = src.includes('w=800') ? src.replace('w=800', 'w=1600') : src;
+      currentIndex = lightboxImages.findIndex(i => i.src === cleanSrc || (i.src && src && (i.src.endsWith(src) || src.endsWith(i.src))));
+      if (currentIndex === -1) {
+        if (caption) {
+          lightboxImages.unshift({ src: cleanSrc, caption: caption, sub: 'Gallery' });
+          currentIndex = 0;
+        } else {
+          currentIndex = 0;
+        }
+      }
+
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      const counter = document.getElementById('lightbox-counter');
+      if (lightboxImages[currentIndex]) {
+        img.src = lightboxImages[currentIndex].src;
+        cap.textContent = lightboxImages[currentIndex].caption;
+        counter.textContent = lightboxImages[currentIndex].sub + ' · ' + (currentIndex + 1) + ' / ' + lightboxImages.length;
+      }
+    }
+
+    window.closeLightbox = function() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    window.navLightbox = function(dir) {
+      currentIndex = (currentIndex + dir + lightboxImages.length) % lightboxImages.length;
+      updateLightbox();
+    };
+
+    // Keyboard nav
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('lightbox').classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') navLightbox(1);
+        if (e.key === 'ArrowLeft') navLightbox(-1);
+      }
+    });
+  });
+</script>
+</body>
+</html>

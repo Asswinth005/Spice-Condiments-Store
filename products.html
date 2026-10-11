@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPICEORA · Products</title>
+  <!-- Favicon - mortar & pestle, warm saffron -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="shortcut icon" href="assets/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="tailwind.js"></script>
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#D98C2E',
+            paprika: '#B84A2E',
+            turmeric: '#E6B422',
+            cardamom: '#6B7F4B',
+            cinnamon: '#8B5A2B',
+            cream: '#FDF7F0',
+            stone: '#D9C5B2',
+            dusk: '#A65A3A',
+            sage: '#9BB87F',
+            sand: '#EADCCB',
+            pepper: '#3D2B1F',
+          },
+          fontFamily: {
+            'display': ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            'body': ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'spin-slow': 'spinSlow 14s linear infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+          },
+          keyframes: {
+            floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            scaleIn: { '0%': { transform: 'scale(0.95)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+          },
+          backgroundImage: {
+            'warm-pattern': 'radial-gradient(circle at 30% 40%, rgba(217, 140, 46, 0.08) 0%, transparent 70%)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .dark body {
+      background-color: #2E1F1A;
+      color: #FDF7F0;
+    }
+    .dark .text-\[\#3D2B1F\] { color: #FDF7F0; }
+
+    .dark nav.fixed {
+      background-color: rgba(46, 31, 26, 0.95) !important;
+      border-color: rgba(217, 140, 46, 0.2) !important;
+    }
+    nav:not(.fixed), .dark nav:not(.fixed) {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    body::-webkit-scrollbar { width: 6px; }
+    body::-webkit-scrollbar-track { background: #FDF7F0; border-radius: 10px; }
+    body::-webkit-scrollbar-thumb { background: #D98C2E; border-radius: 10px; }
+
+    .card-spice {
+      background: white;
+      border-radius: 28px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 140, 46, 0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .dark .card-spice {
+      background: #3D2C25;
+      border-color: rgba(217, 140, 46, 0.25);
+    }
+    .card-spice:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(217, 140, 46, 0.3);
+      border-color: #D98C2E;
+    }
+
+    .btn-primary {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(217, 140, 46, 0.3);
+    }
+    .btn-primary:hover {
+      background-color: #B84A2E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(217, 140, 46, 0.4);
+      color: white;
+    }
+    .btn-outline {
+      border: 1.5px solid #D98C2E;
+      color: #D98C2E;
+      background: transparent;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      transform: translateY(-2px);
+    }
+    .dark .btn-outline:hover {
+      background-color: #D98C2E !important;
+      color: #FDF7F0 !important;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background-color: #D98C2E;
+      transition: width 0.25s ease;
+      border-radius: 3px;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .dropdown-studio { position: relative; }
+    .dropdown-studio-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 18px;
+      padding: 0.5rem 0;
+      box-shadow: 0 18px 32px rgba(0,0,0,0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+      z-index: 1000;
+      border: 1px solid rgba(217, 140, 46, 0.2);
+    }
+    .dark .dropdown-studio-menu { background: #3D2C25; border-color: rgba(217, 140, 46, 0.3); }
+    .dropdown-studio:hover .dropdown-studio-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      transition: all 0.2s;
+      color: #3D2B1F;
+    }
+    .dark .dropdown-item { color: #FDF7F0; }
+    .dropdown-item:hover {
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      padding-left: 1.7rem;
+    }
+    .dropdown-item i { margin-right: 0.75rem; width: 20px; }
+
+    .mobile-menu-studio {
+      background: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 0 0 24px 24px;
+    }
+    .dark .mobile-menu-studio { background: #3D2C25; }
+    .mobile-menu-studio.open { max-height: 80vh; overflow-y: auto; }
+
+    .stat-badge {
+      background: white;
+      border-radius: 28px;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(217, 140, 46, 0.2);
+      text-align: center;
+    }
+    .dark .stat-badge { background: #3D2C25; }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      border-left: 5px solid #D98C2E;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+    }
+    .dark .testimonial-card { background: #3D2C25; }
+
+    .social-icon-studio {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      transition: all 0.3s;
+    }
+    .social-icon-studio:hover {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      transform: translateY(-3px);
+    }
+    .dark .social-icon-studio { background-color: #3D2C25; color: #FDF7F0; }
+    .dark .social-icon-studio:hover { background-color: #D98C2E; color: #FDF7F0; }
+
+    .avatar-circle {
+      background-color: #D98C2E;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #FDF7F0;
+    }
+
+    [dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    [dir="rtl"] .border-l-4 { border-left-width: 0 !important; border-right-width: 4px !important; }
+    [dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+    html[dir="rtl"] .dropdown-studio-menu { left: auto; right: 0; }
+    [dir="rtl"] .dropdown-item i { margin-right: 0; margin-left: 0.75rem; }
+    [dir="rtl"] .dropdown-item:hover { padding-left: 1.4rem; padding-right: 1.7rem; }
+    [dir="rtl"] .testimonial-card { border-left: none; border-right: 5px solid #D98C2E; }
+
+    .flavor-tag {
+      background: rgba(217, 140, 46, 0.15);
+      border-radius: 100px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #3D2B1F;
+    }
+    .dark .flavor-tag { background: rgba(217, 140, 46, 0.2); color: #FDF7F0; }
+
+    .spice-underline {
+      background: linear-gradient(120deg, #E6B422 0%, #E6B422 40%, transparent 80%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.3em;
+      background-position: 0 88%;
+    }
+
+    /* ===== PRODUCTS PAGE SPECIFIC STYLES ===== */
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 1.5px solid transparent;
+    }
+    .cat-pill:hover {
+      transform: translateY(-2px);
+    }
+    .cat-pill.active {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      border-color: #D98C2E;
+      box-shadow: 0 6px 16px rgba(217, 140, 46, 0.35);
+    }
+    .cat-pill:not(.active) {
+      background-color: rgba(217, 140, 46, 0.05);
+      color: #3D2B1F;
+      border-color: rgba(217, 140, 46, 0.25);
+    }
+    .dark .cat-pill:not(.active) {
+      color: #FDF7F0;
+      background-color: rgba(217, 140, 46, 0.08);
+      border-color: rgba(217, 140, 46, 0.3);
+    }
+    .cat-pill:not(.active):hover {
+      background-color: #D98C2E;
+      border-color: #D98C2E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(217, 140, 46, 0.25);
+    }
+
+    /* Sidebar filter */
+    .filter-group {
+      border-bottom: 1px solid rgba(217, 140, 46, 0.15);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .filter-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .filter-check {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid rgba(217, 140, 46, 0.4);
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .filter-check:checked {
+      background-color: #D98C2E;
+      border-color: #D98C2E;
+    }
+    .filter-check:checked::after {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 10px;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .filter-row:hover {
+      color: #D98C2E;
+    }
+
+    /* Range slider */
+    .range-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+      background: rgba(217, 140, 46, 0.2);
+      outline: none;
+    }
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #D98C2E;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(217, 140, 46, 0.5);
+      border: 2px solid #FDF7F0;
+    }
+    .dark .range-slider::-webkit-slider-thumb {
+      border-color: #2E1F1A;
+    }
+
+    /* Product card */
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(217, 140, 46, 0.12);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .dark .product-card {
+      background: #3A2820;
+      border-color: rgba(217, 140, 46, 0.2);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 50px -20px rgba(217, 140, 46, 0.35);
+      border-color: rgba(217, 140, 46, 0.5);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      background: #EADCCB;
+    }
+    .dark .product-img-wrap { background: #2E1F1A; }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.1);
+    }
+
+    .wish-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D98C2E;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .wish-btn:hover {
+      background: #D98C2E;
+      color: white;
+      transform: scale(1.1);
+    }
+    .wish-btn.active {
+      background: #B84A2E;
+      color: white;
+    }
+
+    .quick-view {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(61, 43, 31, 0.92);
+      backdrop-filter: blur(10px);
+      color: #FDF7F0;
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+    }
+    .product-card:hover .quick-view {
+      transform: translateY(0);
+    }
+
+    /* Category header banner */
+    .cat-banner {
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.75rem;
+      transition: all 0.5s ease;
+    }
+    @media (min-width: 1024px) {
+      .cat-banner {
+        padding: 2.25rem;
+      }
+    }
+    .cat-banner:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sort-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D98C2E' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .badge-sale {
+      background: linear-gradient(135deg, #B84A2E, #D98C2E);
+    }
+
+    /* Mobile filter drawer */
+    .filter-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+    }
+    .filter-drawer.open {
+      pointer-events: auto;
+    }
+    .filter-drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .filter-drawer.open .filter-drawer-overlay {
+      opacity: 1;
+    }
+    .filter-drawer-panel {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: #FDF7F0;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+    .dark .filter-drawer-panel {
+      background: #2E1F1A;
+    }
+    .filter-drawer.open .filter-drawer-panel {
+      transform: translateX(0);
+    }
+    [dir="rtl"] .filter-drawer-panel {
+      left: auto;
+      right: 0;
+      transform: translateX(100%);
+    }
+    [dir="rtl"] .filter-drawer.open .filter-drawer-panel {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="warm-pattern">
+
+<!-- ======== NAVIGATION ======== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 dark:bg-[#2E1F1A]/95 backdrop-blur-md border-b border-cream/40 dark:border-cream/10 shadow-sm">
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0 relative">
+      <!-- Logo -->
+      <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+        <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 overflow-hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" class="w-full h-full p-1.5" fill="none">
+            <path d="M8 22 Q8 30 18 30 Q28 30 28 22 L26 22 Q26 27 18 27 Q10 27 10 22 Z" fill="white" opacity="0.9"/>
+            <ellipse cx="18" cy="22" rx="8" ry="2.5" fill="white" opacity="0.95"/>
+            <rect x="16.5" y="10" width="3" height="12" rx="1.5" fill="white" opacity="0.85"/>
+            <circle cx="18" cy="10" r="3" fill="white" opacity="0.9"/>
+            <ellipse cx="26" cy="12" rx="3.5" ry="2" transform="rotate(30 26 12)" fill="white" opacity="0.6"/>
+            <ellipse cx="29" cy="17" rx="2.8" ry="1.6" transform="rotate(-15 29 17)" fill="white" opacity="0.5"/>
+            <circle cx="12" cy="26" r="1" fill="white" opacity="0.5"/>
+            <circle cx="22" cy="27" r="1.2" fill="white" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center leading-none">
+          <span class="text-xl md:text-2xl font-display font-extrabold tracking-wider"><span class="text-[#3D2B1F] dark:text-cream">SPICE</span><span class="text-saffron">ORA</span></span>
+          <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-saffron mt-0.5">Spices &amp; Condiments</span>
+        </div>
+      </a>
+
+      <!-- Centered Desktop Navigation -->
+      <div class="hidden xl:flex items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2">
+        <div class="dropdown-studio">
+          <button class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition flex items-center gap-1 py-2 whitespace-nowrap text-base">
+            Home <i class="fas fa-chevron-down text-xs ms-1"></i>
+          </button>
+          <div class="dropdown-studio-menu">
+            <a class="dropdown-item" href="index.html"> Home 1</a>
+            <a class="dropdown-item" href="home2.html"> Home 2</a>
+          </div>
+        </div>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="about.html">About</a>
+        <a class="nav-link text-saffron font-medium transition whitespace-nowrap text-base" href="products.html">Products</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="recipes.html">Recipes</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="gallery.html">Gallery</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="custom.html">Custom &amp; Bulk</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="contact.html">Contact</a>
+      </div>
+
+      <!-- Desktop actions & Mobile toggle -->
+      <div class="flex items-center gap-3 xl:gap-4 ms-auto">
+        <a href="contact.html" class="hidden xl:inline-flex btn-primary py-2 px-5 rounded-full text-sm font-medium items-center gap-2 shadow-md hover:scale-105 transition">
+          <i class="fas fa-envelope"></i> Enquire
+        </a>
+        <button id="theme-toggle" class="hidden xl:flex w-10 h-10 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron hover:scale-110 transition items-center justify-center">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i>
+        </button>
+        <button id="rtl-toggle" class="hidden xl:flex w-10 h-10 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron hover:scale-110 transition items-center justify-center font-bold text-base">
+          ⇄
+        </button>
+
+        <!-- Mobile toggle -->
+        <button id="mobile-toggle" class="xl:hidden w-10 h-10 rounded-full bg-saffron text-cream flex items-center justify-center shadow-md">
+          <i class="fas fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu-studio xl:hidden">
+      <div class="py-4 px-3 space-y-1">
+        <div class="py-1">
+          <button onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition cursor-pointer">
+            <span>Home</span>
+            <i id="home-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+          </button>
+          <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+            <a class="block py-2.5 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="index.html">Home 1</a>
+            <a class="block py-2.5 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="home2.html">Home 2</a>
+          </div>
+        </div>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="about.html">About</a>
+        <a class="block py-3 px-4 font-medium text-saffron border-l-4 border-saffron bg-saffron/5 rounded-xl transition" href="products.html">Products</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="recipes.html">Recipes</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="gallery.html">Gallery</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="custom.html">Custom &amp; Bulk</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="contact.html">Contact</a>
+        <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream/60 dark:border-cream/10">
+          <a class="text-center btn-primary py-2.5 rounded-full font-medium shadow-md flex items-center justify-center gap-2" href="contact.html">
+            <i class="fas fa-envelope"></i> Enquire
+          </a>
+          <div class="flex gap-3">
+            <button id="mobile-theme-toggle" class="flex-1 py-2 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron text-sm font-medium flex items-center gap-2 justify-center">
+              <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="flex-1 py-2 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron text-sm font-medium flex items-center gap-2 justify-center">
+              ⇄ RTL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- ==================== PRODUCTS PAGE CONTENT ================== -->
+<!-- ============================================================ -->
+
+<!-- ===== 1. PAGE HEADER — COMPACT HERO ===== -->
+<section class="relative pt-32 pb-20 bg-[#1A120B] overflow-hidden text-center">
+  <div class="absolute inset-0 opacity-20">
+    <img src="assets/spice-market-sacks.jpg" alt="Spices" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1A120B]/90 via-[#1A120B]/70 to-[#1A120B]"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
+    <div class="max-w-3xl flex flex-col items-center">
+      <!-- Breadcrumb -->
+      <nav class="bg-transparent flex items-center justify-center gap-2 text-cream/50 text-xs font-medium mb-6">
+        <a href="index.html" class="hover:text-saffron transition">Home</a>
+        <i class="fas fa-chevron-right text-[8px]"></i>
+        <span class="text-saffron">Products</span>
+      </nav>
+
+      <span class="inline-flex items-center justify-center gap-3 text-saffron text-xs font-bold tracking-[0.3em] uppercase mb-4">
+        <span class="w-8 h-[1px] bg-saffron inline-block"></span>
+        The Collection
+        <span class="w-8 h-[1px] bg-saffron inline-block"></span>
+      </span>
+      <h1 class="text-5xl md:text-7xl font-display font-extrabold text-cream leading-[1.05] mb-5">
+        Every spice, <span class="text-saffron">every story.</span>
+      </h1>
+      <p class="text-cream/60 text-base md:text-lg max-w-xl leading-relaxed mb-8 mx-auto">
+        40+ single-origin spices and heritage blends. Browse by category or filter to find exactly what your kitchen needs.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#productGrid" class="btn-primary px-8 py-3 text-sm tracking-wide font-semibold inline-flex items-center gap-2">
+          <i class="fas fa-shopping-bag text-xs"></i>
+          Explore Products
+        </a>
+        <a href="custom.html" class="btn-outline px-8 py-3 text-sm tracking-wide font-semibold inline-flex items-center gap-2 !border-saffron/40 !text-cream hover:!bg-saffron hover:!text-cream transition">
+          <i class="fas fa-mortar-pestle text-xs"></i>
+          Custom Blend
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. CATEGORY TABS ===== -->
+<section class="relative bg-[#FDF7F0] dark:bg-[#2E1F1A] border-b border-saffron/15 py-6">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-4">
+      <span class="text-saffron text-xs font-bold tracking-[0.25em] uppercase block mb-1">Explore By Category</span>
+      <h2 class="text-2xl md:text-3xl font-display font-extrabold text-[#3D2B1F] dark:text-cream">
+        Browse Spice <span class="text-saffron">Varieties</span>
+      </h2>
+    </div>
+    <div class="flex items-center justify-center flex-wrap gap-2.5 md:gap-3 py-2">
+      <button class="cat-pill active" data-cat="all">
+        <i class="fas fa-th-large text-xs"></i> All Products
+      </button>
+      <button class="cat-pill" data-cat="whole">
+        <i class="fas fa-seedling text-xs"></i> Whole Spices
+      </button>
+      <button class="cat-pill" data-cat="ground">
+        <i class="fas fa-mortar-pestle text-xs"></i> Ground Spices
+      </button>
+      <button class="cat-pill" data-cat="blends">
+        <i class="fas fa-blender text-xs"></i> Signature Blends
+      </button>
+      <button class="cat-pill" data-cat="seasoning">
+        <i class="fas fa-salt-and-pepper text-xs"></i> Seasonings
+      </button>
+      <button class="cat-pill" data-cat="chai">
+        <i class="fas fa-mug-hot text-xs"></i> Chai &amp; Tea
+      </button>
+      <button class="cat-pill" data-cat="gift">
+        <i class="fas fa-gift text-xs"></i> Gift Sets
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. MAIN LAYOUT — SIDEBAR + GRID ===== -->
+<section class="py-12 bg-[#FDF7F0] dark:bg-[#2E1F1A]">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-10">
+
+      <!-- ===== SIDEBAR FILTERS (Desktop) ===== -->
+      <aside class="hidden lg:block w-64 shrink-0">
+        <div class="sticky top-44 space-y-6">
+          <!-- Filter header -->
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-xl text-[#3D2B1F] dark:text-cream">Filters</h3>
+            <button class="text-xs text-saffron font-semibold hover:underline">Reset All</button>
+          </div>
+
+          <!-- Search -->
+          <div class="relative">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-saffron/50 text-sm"></i>
+            <input type="text" placeholder="Search spices..."
+              class="w-full pl-10 pr-4 py-3 rounded-2xl bg-white dark:bg-[#3A2820] border border-saffron/15 text-sm text-[#3D2B1F] dark:text-cream placeholder-[#3D2B1F]/40 dark:placeholder-cream/40 focus:outline-none focus:border-saffron transition">
+          </div>
+
+          <!-- Category filter -->
+          <div class="filter-group">
+            <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Category</h4>
+            <div class="space-y-1">
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check" checked>
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Whole Spices</span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">12</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check" checked>
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Ground Spices</span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">9</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Signature Blends</span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">14</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Seasonings</span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">6</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Chai &amp; Tea</span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">5</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Origin filter -->
+          <div class="filter-group">
+            <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Origin</h4>
+            <div class="space-y-1">
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Kerala</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Kashmir</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Malabar</span>
+              </label>
+              <label class="filter-row">
+                <input type="checkbox" class="filter-check">
+                <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Sri Lanka</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Heat level -->
+          <div class="filter-group">
+            <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Heat Level</h4>
+            <div class="flex flex-wrap gap-2">
+              <button class="flavor-tag hover:bg-saffron hover:text-white transition cursor-pointer">🌶️ Mild</button>
+              <button class="flavor-tag hover:bg-saffron hover:text-white transition cursor-pointer">🌶️🌶️ Medium</button>
+              <button class="flavor-tag hover:bg-saffron hover:text-white transition cursor-pointer">🌶️🌶️🌶️ Hot</button>
+            </div>
+          </div>
+
+          <!-- Price range -->
+          <div class="filter-group">
+            <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Price Range</h4>
+            <input type="range" min="0" max="50" value="50" class="range-slider mb-2">
+            <div class="flex items-center justify-between text-xs text-[#3D2B1F]/60 dark:text-cream/60">
+              <span>$0</span>
+              <span class="font-bold text-saffron">$50</span>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="filter-group">
+            <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Rating</h4>
+            <div class="space-y-2">
+              <label class="filter-row">
+                <input type="radio" name="rating" class="filter-check" checked>
+                <span class="flex items-center gap-1">
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                </span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">4.5+</span>
+              </label>
+              <label class="filter-row">
+                <input type="radio" name="rating" class="filter-check">
+                <span class="flex items-center gap-1">
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="fas fa-star text-amber-400 text-xs"></i>
+                  <i class="far fa-star text-amber-400 text-xs"></i>
+                </span>
+                <span class="ml-auto text-xs text-[#3D2B1F]/40 dark:text-cream/40">4.0+</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Availability -->
+          <div class="filter-group">
+            <label class="filter-row">
+              <input type="checkbox" class="filter-check">
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">In Stock Only</span>
+            </label>
+            <label class="filter-row">
+              <input type="checkbox" class="filter-check">
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">On Sale</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ===== PRODUCT GRID AREA ===== -->
+      <div class="flex-1 min-w-0">
+
+        <!-- Toolbar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div class="flex items-center gap-3">
+            <!-- Mobile filter button -->
+            <button id="mobile-filter-btn" class="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-saffron/30 text-saffron text-sm font-semibold hover:bg-saffron/10 transition">
+              <i class="fas fa-sliders-h text-xs"></i> Filters
+            </button>
+            <p class="text-sm text-[#3D2B1F]/60 dark:text-cream/60">
+              Showing <span class="font-bold text-[#3D2B1F] dark:text-cream">1–9</span> of <span class="font-bold text-[#3D2B1F] dark:text-cream">46</span> products
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <!-- View toggle -->
+            <div class="hidden sm:flex items-center gap-1 bg-white dark:bg-[#3A2820] rounded-full p-1 border border-saffron/15">
+              <button class="w-8 h-8 rounded-full flex items-center justify-center text-saffron bg-saffron/15">
+                <i class="fas fa-th-large text-xs"></i>
+              </button>
+              <button class="w-8 h-8 rounded-full flex items-center justify-center text-[#3D2B1F]/40 dark:text-cream/40 hover:text-saffron transition">
+                <i class="fas fa-list text-xs"></i>
+              </button>
+            </div>
+            <!-- Sort -->
+            <select class="sort-select px-4 py-2.5 rounded-full bg-white dark:bg-[#3A2820] border border-saffron/15 text-sm font-medium text-[#3D2B1F] dark:text-cream focus:outline-none focus:border-saffron cursor-pointer">
+              <option>Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Best Rating</option>
+              <option>Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active filters chips -->
+        <div class="flex flex-wrap items-center gap-2 mb-6">
+          <span class="text-xs text-[#3D2B1F]/50 dark:text-cream/50 font-medium">Active:</span>
+          <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-saffron/15 text-saffron text-xs font-semibold hover:bg-saffron/25 transition">
+            Whole Spices <i class="fas fa-times text-[9px]"></i>
+          </button>
+          <button class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-saffron/15 text-saffron text-xs font-semibold hover:bg-saffron/25 transition">
+            $0 – $50 <i class="fas fa-times text-[9px]"></i>
+          </button>
+          <button class="text-xs text-saffron font-semibold hover:underline ml-1">Clear all</button>
+        </div>
+
+        <!-- ===== PRODUCT GRID ===== -->
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+          <!-- Product 1 — Garam Masala -->
+          <div class="product-card group" data-cat="blends">
+            <div class="product-img-wrap">
+              <img src="assets/spice-market-sacks.jpg" alt="Garam Masala">
+              <span class="absolute top-4 left-4 badge-sale text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">🏆 BEST SELLER</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Signature Blend</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star-half-stroke text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(4.8)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Garam Masala</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">12 whole spices, woodfire roasted, stone-ground.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$14</span>
+                  <span class="text-[#3D2B1F]/30 dark:text-cream/30 text-xs line-through ml-1">$19</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 — Smoked Paprika -->
+          <div class="product-card group" data-cat="ground">
+            <div class="product-img-wrap">
+              <img src="assets/spice-grinding-mortar.jpg" alt="Smoked Paprika">
+              <span class="absolute top-4 left-4 bg-[#3D2B1F] text-cream text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">✨ NEW</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Ground Spice</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(5.0)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Smoked Paprika</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">Oak-smoked, sweet &amp; mildly hot. Perfect for rubs.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$12</span>
+                  <span class="text-[#3D2B1F]/30 dark:text-cream/30 text-xs line-through ml-1">$16</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 — Cardamom & Clove -->
+          <div class="product-card group" data-cat="whole">
+            <div class="product-img-wrap">
+              <img src="assets/spice-composition.jpg" alt="Cardamom & Clove">
+              <span class="absolute top-4 left-4 bg-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">🌿 AROMATIC</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Whole Spice</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(4.9)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Cardamom &amp; Clove</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">Hand-picked green cardamom &amp; clove. For chai &amp; baking.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$18</span>
+                  <span class="text-[#3D2B1F]/30 dark:text-cream/30 text-xs line-through ml-1">$23</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 — Tellicherry Pepper -->
+          <div class="product-card group" data-cat="whole">
+            <div class="product-img-wrap">
+              <img src="/assets/p1.jpg" alt="Tellicherry Pepper">
+              <span class="absolute top-4 left-4 bg-saffron text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">⭐ TOP RATED</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Whole Spice</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(5.0)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Tellicherry Pepper</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">Bold, complex, and fruity. The king of peppers.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$16</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 — Chai Masala -->
+          <div class="product-card group" data-cat="chai">
+            <div class="product-img-wrap">
+              <img src="/assets/p7.jpg" alt="Chai Masala">
+              <span class="absolute top-4 left-4 bg-[#A65A3A] text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">☕ CHAI</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Chai &amp; Tea</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star-half-stroke text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(4.7)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Chai Masala</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">Warming blend of cardamom, ginger, cinnamon &amp; clove.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$13</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 6 — Kashmiri Saffron -->
+          <div class="product-card group" data-cat="whole">
+            <div class="product-img-wrap">
+              <img src="/assets/p2.jpg" alt="Kashmiri Saffron">
+              <span class="absolute top-4 left-4 bg-[#B84A2E] text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">💎 PREMIUM</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Whole Spice</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(5.0)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Kashmiri Saffron</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">Hand-picked at dawn. Deep colour, honeyed aroma.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$34</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 7 — Turmeric -->
+          <div class="product-card group" data-cat="ground">
+            <div class="product-img-wrap">
+              <img src="/assets/p3.jpg" alt="Turmeric">
+              <span class="absolute top-4 left-4 bg-[#E6B422] text-[#3D2B1F] text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">🟡 ORGANIC</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Ground Spice</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="far fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(4.5)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Alleppey Turmeric</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">High curcumin. Earthy, bright, and deeply golden.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$10</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 8 — Gift Set -->
+          <div class="product-card group" data-cat="gift">
+            <div class="product-img-wrap">
+              <img src="/assets/p4.jpg" alt="Gift Set">
+              <span class="absolute top-4 left-4 bg-[#6B7F4B] text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg">🎁 GIFT</span>
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Gift Set</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(4.9)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Explorer Gift Set</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">5 signature blends in a wooden crate. Ready to gift.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$48</span>
+                  <span class="text-[#3D2B1F]/30 dark:text-cream/30 text-xs line-through ml-1">$60</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 9 — Cumin -->
+          <div class="product-card group" data-cat="ground">
+            <div class="product-img-wrap">
+              <img src="/assets/p6.webp" alt="Cumin">
+              <button class="wish-btn absolute top-4 right-4" onclick="this.classList.toggle('active')">
+                <i class="far fa-heart text-sm"></i>
+              </button>
+              <div class="quick-view">Quick View</div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex items-center gap-1 mb-2">
+                <span class="flavor-tag">Ground Spice</span>
+              </div>
+              <div class="flex items-center gap-1 mb-2">
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="fas fa-star text-amber-400 text-[10px]"></i>
+                <i class="far fa-star text-amber-400 text-[10px]"></i>
+                <span class="text-[#3D2B1F]/40 dark:text-cream/40 text-[10px] ml-1">(4.4)</span>
+              </div>
+              <h3 class="font-bold text-lg text-[#3D2B1F] dark:text-cream mb-1">Roasted Cumin</h3>
+              <p class="text-[#3D2B1F]/50 dark:text-cream/50 text-xs leading-relaxed mb-4 flex-1">Earthy, warm, and nutty. Ground fresh weekly.</p>
+              <div class="flex items-center justify-between pt-3 border-t border-saffron/10">
+                <div>
+                  <span class="text-saffron font-extrabold text-xl">$9</span>
+                </div>
+                <button class="w-9 h-9 rounded-full bg-saffron text-white flex items-center justify-center hover:bg-[#B84A2E] transition shadow-md hover:scale-110">
+                  <i class="fas fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Load more -->
+        <div class="mt-12 text-center">
+          <button class="btn-outline px-10 py-3.5 rounded-full font-semibold inline-flex items-center gap-2">
+            Load More Products <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <p class="text-[#3D2B1F]/40 dark:text-cream/40 text-xs mt-3">Showing 9 of 46 products</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. CATEGORY SPOTLIGHT BANNERS ===== -->
+<section class="py-16 bg-[#FAF3EC] dark:bg-[#251912]">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <span class="text-saffron text-xs font-bold tracking-[0.3em] uppercase block mb-3">Shop by Category</span>
+      <h2 class="text-3xl md:text-4xl font-display font-extrabold text-[#3D2B1F] dark:text-cream">
+        Find your <span class="text-saffron">flavour.</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 items-stretch">
+      <!-- Banner 1 -->
+      <a href="#" class="cat-banner bg-gradient-to-br from-[#D98C2E] to-[#B84A2E] group h-full">
+        <div class="relative z-10 flex flex-col justify-between h-full w-full">
+          <div>
+            <i class="fas fa-mortar-pestle text-cream/40 text-4xl mb-4 block"></i>
+            <h3 class="text-xl lg:text-2xl font-display font-bold text-cream mb-2 leading-tight">Signature Blends</h3>
+            <p class="text-cream/70 text-sm mb-4 leading-relaxed">14 heritage blends, ground fresh weekly.</p>
+          </div>
+          <div class="pt-4 mt-auto">
+            <span class="inline-flex items-center gap-2 text-cream font-semibold text-sm group-hover:gap-3 transition-all">
+              Shop Now <i class="fas fa-arrow-right text-xs"></i>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Banner 2 -->
+      <a href="#" class="cat-banner bg-gradient-to-br from-[#6B7F4B] to-[#3D2B1F] group h-full">
+        <div class="relative z-10 flex flex-col justify-between h-full w-full">
+          <div>
+            <i class="fas fa-seedling text-cream/40 text-4xl mb-4 block"></i>
+            <h3 class="text-xl lg:text-2xl font-display font-bold text-cream mb-2 leading-tight">Whole Spices</h3>
+            <p class="text-cream/70 text-sm mb-4 leading-relaxed">Single-origin pods, seeds, and barks.</p>
+          </div>
+          <div class="pt-4 mt-auto">
+            <span class="inline-flex items-center gap-2 text-cream font-semibold text-sm group-hover:gap-3 transition-all">
+              Shop Now <i class="fas fa-arrow-right text-xs"></i>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Banner 3 -->
+      <a href="#" class="cat-banner bg-gradient-to-br from-[#3D2B1F] to-[#1A120B] group h-full">
+        <div class="relative z-10 flex flex-col justify-between h-full w-full">
+          <div>
+            <i class="fas fa-gift text-cream/40 text-4xl mb-4 block"></i>
+            <h3 class="text-xl lg:text-2xl font-display font-bold text-cream mb-2 leading-tight">Gift Sets</h3>
+            <p class="text-cream/70 text-sm mb-4 leading-relaxed">Curated boxes for the spice lover in your life.</p>
+          </div>
+          <div class="pt-4 mt-auto">
+            <span class="inline-flex items-center gap-2 text-cream font-semibold text-sm group-hover:gap-3 transition-all">
+              Shop Now <i class="fas fa-arrow-right text-xs"></i>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. BULK CTA ===== -->
+<section class="py-16 bg-saffron dark:bg-[#2E1F1A]">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex items-center gap-6">
+        <div class="w-16 h-16 rounded-2xl bg-cream/15 flex items-center justify-center shrink-0">
+          <i class="fas fa-truck-fast text-cream text-2xl"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl font-display font-bold text-cream mb-1">Need bulk quantities?</h3>
+          <p class="text-cream/70 text-sm">Custom roasts, private labeling, and tiered pricing for kitchens &amp; retailers.</p>
+        </div>
+      </div>
+      <a href="custom.html" class="bg-cream text-saffron font-bold px-8 py-3.5 rounded-full hover:scale-105 transition shadow-lg inline-flex items-center gap-2 shrink-0">
+        Request a Quote <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOBILE FILTER DRAWER ===== -->
+<div id="filter-drawer" class="filter-drawer lg:hidden">
+  <div class="filter-drawer-overlay" onclick="document.getElementById('filter-drawer').classList.remove('open')"></div>
+  <div class="filter-drawer-panel">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="font-display font-bold text-xl text-[#3D2B1F] dark:text-cream">Filters</h3>
+      <button onclick="document.getElementById('filter-drawer').classList.remove('open')" class="w-9 h-9 rounded-full bg-saffron/15 text-saffron flex items-center justify-center">
+        <i class="fas fa-times text-sm"></i>
+      </button>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Search -->
+      <div class="relative">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-saffron/50 text-sm"></i>
+        <input type="text" placeholder="Search spices..."
+          class="w-full pl-10 pr-4 py-3 rounded-2xl bg-white dark:bg-[#3A2820] border border-saffron/15 text-sm text-[#3D2B1F] dark:text-cream placeholder-[#3D2B1F]/40 dark:placeholder-cream/40 focus:outline-none focus:border-saffron transition">
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Category</h4>
+        <div class="space-y-1">
+          <label class="filter-row"><input type="checkbox" class="filter-check" checked><span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Whole Spices</span></label>
+          <label class="filter-row"><input type="checkbox" class="filter-check" checked><span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Ground Spices</span></label>
+          <label class="filter-row"><input type="checkbox" class="filter-check"><span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Signature Blends</span></label>
+          <label class="filter-row"><input type="checkbox" class="filter-check"><span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Seasonings</span></label>
+          <label class="filter-row"><input type="checkbox" class="filter-check"><span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">Chai &amp; Tea</span></label>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="filter-group">
+        <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-3 uppercase tracking-wider">Price Range</h4>
+        <input type="range" min="0" max="50" value="50" class="range-slider mb-2">
+        <div class="flex items-center justify-between text-xs text-[#3D2B1F]/60 dark:text-cream/60">
+          <span>$0</span><span class="font-bold text-saffron">$50</span>
+        </div>
+      </div>
+
+      <!-- Apply -->
+      <button onclick="document.getElementById('filter-drawer').classList.remove('open')" class="w-full btn-primary py-3.5 rounded-full font-semibold">
+        Apply Filters
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ================== END PRODUCTS PAGE CONTENT ================ -->
+<!-- ============================================================ -->
+
+<!-- ======== FOOTER ======== -->
+<footer class="bg-cream dark:bg-[#2E1F1A] text-[#3D2B1F] dark:text-cream pt-16 pb-8 border-t-4 border-saffron transition-colors duration-300">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="text-center md:text-start">
+        <a href="index.html" class="inline-flex items-center justify-center md:justify-start gap-3 mb-6 group hover:opacity-90 transition">
+          <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-xl flex items-center justify-center shadow-lg overflow-hidden group-hover:scale-105 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" class="w-full h-full p-1.5" fill="none">
+              <path d="M8 22 Q8 30 18 30 Q28 30 28 22 L26 22 Q26 27 18 27 Q10 27 10 22 Z" fill="white" opacity="0.9"/>
+              <ellipse cx="18" cy="22" rx="8" ry="2.5" fill="white" opacity="0.95"/>
+              <rect x="16.5" y="10" width="3" height="12" rx="1.5" fill="white" opacity="0.85"/>
+              <circle cx="18" cy="10" r="3" fill="white" opacity="0.9"/>
+              <ellipse cx="26" cy="12" rx="3.5" ry="2" transform="rotate(30 26 12)" fill="white" opacity="0.6"/>
+              <ellipse cx="29" cy="17" rx="2.8" ry="1.6" transform="rotate(-15 29 17)" fill="white" opacity="0.5"/>
+              <circle cx="12" cy="26" r="1" fill="white" opacity="0.5"/>
+              <circle cx="22" cy="27" r="1.2" fill="white" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="flex flex-col text-left leading-none">
+            <span class="text-xl md:text-2xl font-display font-extrabold tracking-wider"><span class="text-[#3D2B1F] dark:text-cream">SPICE</span><span class="text-saffron">ORA</span></span>
+            <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-saffron mt-0.5">Spices &amp; Condiments</span>
+          </div>
+        </a>
+        <p class="mb-5 text-[#3D2B1F] dark:text-cream text-sm">Heritage spice blends &amp; condiments. Stone-ground, small-batch, full of aroma.</p>
+        <div class="flex justify-center md:justify-start gap-3">
+          <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon-studio"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Explore</h4>
+        <ul class="space-y-2">
+          <li><a href="products.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Products</a></li>
+          <li><a href="recipes.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Recipes</a></li>
+          <li><a href="custom.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Custom &amp; Bulk</a></li>
+          <li><a href="gallery.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Community</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">About</a></li>
+          <li><a href="contact.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Contact</a></li>
+          <li><a href="#" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Careers</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Spice Atelier</h4>
+        <ul class="space-y-3">
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-map-marker-alt text-saffron mt-1"></i><span>42 Harvest Lane, Old Market District</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-phone text-saffron"></i><span>(555) 273-SPICE</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-envelope text-saffron"></i><span>hello@spiceora.com</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream text-sm"><i class="fas fa-clock text-saffron"></i><span>Mon–Sat 9am – 6pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-cream/60 dark:border-cream/10 text-center text-sm text-[#3D2B1F] dark:text-cream">
+      <p>&copy; 2026 SPICEORA · Spices &amp; Condiments. <i class="fas fa-mortar-pestle text-saffron mx-1"></i> Crafted with spice &amp; soul.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== SCRIPTS ======== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle
+    const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+    themeBtns.forEach(btn => {
+      btn?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      });
+    });
+    if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+    // RTL
+    function setRTL(isRTL) {
+      const html = document.documentElement;
+      if (isRTL === 'rtl' || isRTL === true) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); } 
+      else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+    }
+    const savedDir = localStorage.getItem('dir');
+    if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+    else document.documentElement.setAttribute('dir', 'ltr');
+
+    const rtlBtn = document.getElementById('rtl-toggle');
+    if (rtlBtn) {
+      rtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir');
+        setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+      });
+    }
+    const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+    if (mobileRtlBtn) {
+      mobileRtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir');
+        setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        if (mobileMenu && mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          if (mobileToggle && mobileToggle.querySelector('i')) {
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+          }
+        }
+      });
+    }
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        const icon = mobileToggle.querySelector('i');
+        if (mobileMenu.classList.contains('open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          if (mobileToggle.querySelector('i')) {
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Category pill switching
+    const pills = document.querySelectorAll('.cat-pill');
+    const cards = document.querySelectorAll('.product-card');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const cat = pill.dataset.cat;
+        cards.forEach(card => {
+          if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = 'flex';
+            card.style.animation = 'none';
+            card.offsetHeight;
+            card.style.animation = 'scaleIn 0.4s ease-out';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Mobile filter drawer
+    const filterBtn = document.getElementById('mobile-filter-btn');
+    const filterDrawer = document.getElementById('filter-drawer');
+    if (filterBtn && filterDrawer) {
+      filterBtn.addEventListener('click', () => {
+        filterDrawer.classList.add('open');
+      });
+    }
+
+    // Wishlist toggle
+    document.querySelectorAll('.wish-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('active');
+        const icon = btn.querySelector('i');
+        if (btn.classList.contains('active')) {
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+        } else {
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

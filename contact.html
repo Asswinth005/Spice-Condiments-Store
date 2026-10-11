@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPICEORA · Contact</title>
+  <!-- Favicon - mortar & pestle, warm saffron -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="shortcut icon" href="assets/favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="tailwind.js"></script>
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#D98C2E',
+            paprika: '#B84A2E',
+            turmeric: '#E6B422',
+            cardamom: '#6B7F4B',
+            cinnamon: '#8B5A2B',
+            cream: '#FDF7F0',
+            stone: '#D9C5B2',
+            dusk: '#A65A3A',
+            sage: '#9BB87F',
+            sand: '#EADCCB',
+            pepper: '#3D2B1F',
+          },
+          fontFamily: {
+            'display': ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            'body': ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'spin-slow': 'spinSlow 14s linear infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'scale-in': 'scaleIn 0.5s ease-out',
+            'pulse-ring': 'pulseRing 2.5s ease-out infinite',
+          },
+          keyframes: {
+            floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            scaleIn: { '0%': { transform: 'scale(0.95)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+            pulseRing: { '0%': { transform: 'scale(0.8)', opacity: '0.8' }, '100%': { transform: 'scale(2.2)', opacity: '0' } },
+          },
+          backgroundImage: {
+            'warm-pattern': 'radial-gradient(circle at 30% 40%, rgba(217, 140, 46, 0.08) 0%, transparent 70%)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .dark body {
+      background-color: #2E1F1A;
+      color: #FDF7F0;
+    }
+    .dark .text-\[\#3D2B1F\] { color: #FDF7F0; }
+
+    .dark nav.fixed {
+      background-color: rgba(46, 31, 26, 0.95) !important;
+      border-color: rgba(217, 140, 46, 0.2) !important;
+    }
+    nav:not(.fixed), .dark nav:not(.fixed) {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    body::-webkit-scrollbar { width: 6px; }
+    body::-webkit-scrollbar-track { background: #FDF7F0; border-radius: 10px; }
+    body::-webkit-scrollbar-thumb { background: #D98C2E; border-radius: 10px; }
+
+    .card-spice {
+      background: white;
+      border-radius: 28px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(217, 140, 46, 0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .dark .card-spice {
+      background: #3D2C25;
+      border-color: rgba(217, 140, 46, 0.25);
+    }
+    .card-spice:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(217, 140, 46, 0.3);
+      border-color: #D98C2E;
+    }
+
+    .btn-primary {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(217, 140, 46, 0.3);
+    }
+    .btn-primary:hover {
+      background-color: #B84A2E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(217, 140, 46, 0.4);
+      color: white;
+    }
+    .btn-outline {
+      border: 1.5px solid #D98C2E;
+      color: #D98C2E;
+      background: transparent;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      transform: translateY(-2px);
+    }
+    .dark .btn-outline:hover {
+      background-color: #D98C2E !important;
+      color: #FDF7F0 !important;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background-color: #D98C2E;
+      transition: width 0.25s ease;
+      border-radius: 3px;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .dropdown-studio { position: relative; }
+    .dropdown-studio-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      background: white;
+      border-radius: 18px;
+      padding: 0.5rem 0;
+      box-shadow: 0 18px 32px rgba(0,0,0,0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+      z-index: 1000;
+      border: 1px solid rgba(217, 140, 46, 0.2);
+    }
+    .dark .dropdown-studio-menu { background: #3D2C25; border-color: rgba(217, 140, 46, 0.3); }
+    .dropdown-studio:hover .dropdown-studio-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      transition: all 0.2s;
+      color: #3D2B1F;
+    }
+    .dark .dropdown-item { color: #FDF7F0; }
+    .dropdown-item:hover {
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      padding-left: 1.7rem;
+    }
+    .dropdown-item i { margin-right: 0.75rem; width: 20px; }
+
+    .mobile-menu-studio {
+      background: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 0 0 24px 24px;
+    }
+    .dark .mobile-menu-studio { background: #3D2C25; }
+    .mobile-menu-studio.open { max-height: 80vh; overflow-y: auto; }
+
+    .stat-badge {
+      background: white;
+      border-radius: 28px;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(217, 140, 46, 0.2);
+      text-align: center;
+    }
+    .dark .stat-badge { background: #3D2C25; }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      border-left: 5px solid #D98C2E;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+    }
+    .dark .testimonial-card { background: #3D2C25; }
+
+    .social-icon-studio {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FDF7F0;
+      color: #3D2B1F;
+      transition: all 0.3s;
+    }
+    .social-icon-studio:hover {
+      background-color: #D98C2E;
+      color: #FDF7F0;
+      transform: translateY(-3px);
+    }
+    .dark .social-icon-studio { background-color: #3D2C25; color: #FDF7F0; }
+    .dark .social-icon-studio:hover { background-color: #D98C2E; color: #FDF7F0; }
+
+    .avatar-circle {
+      background-color: #D98C2E;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #FDF7F0;
+    }
+
+    [dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    [dir="rtl"] .border-l-4 { border-left-width: 0 !important; border-right-width: 4px !important; }
+    [dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+    html[dir="rtl"] .dropdown-studio-menu { left: auto; right: 0; }
+    [dir="rtl"] .dropdown-item i { margin-right: 0; margin-left: 0.75rem; }
+    [dir="rtl"] .dropdown-item:hover { padding-left: 1.4rem; padding-right: 1.7rem; }
+    [dir="rtl"] .testimonial-card { border-left: none; border-right: 5px solid #D98C2E; }
+
+    .flavor-tag {
+      background: rgba(217, 140, 46, 0.15);
+      border-radius: 100px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #3D2B1F;
+    }
+    .dark .flavor-tag { background: rgba(217, 140, 46, 0.2); color: #FDF7F0; }
+
+    .spice-underline {
+      background: linear-gradient(120deg, #E6B422 0%, #E6B422 40%, transparent 80%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.3em;
+      background-position: 0 88%;
+    }
+
+    /* ===== CONTACT PAGE SPECIFIC STYLES ===== */
+    .contact-card {
+      border-radius: 28px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 1px solid rgba(217, 140, 46, 0.15);
+      background: white;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .dark .contact-card {
+      background: #3A2820;
+      border-color: rgba(217, 140, 46, 0.2);
+    }
+    .contact-card:hover {
+      transform: translateY(-8px);
+      border-color: #D98C2E;
+      box-shadow: 0 30px 50px -20px rgba(217, 140, 46, 0.4);
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, #D98C2E, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    .contact-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      transition: all 0.4s ease;
+    }
+    .contact-card:hover .contact-icon-box {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    /* Form inputs */
+    .form-input {
+      width: 100%;
+      padding: 0.9rem 1.15rem;
+      border-radius: 16px;
+      background: white;
+      border: 1.5px solid rgba(217, 140, 46, 0.2);
+      color: #3D2B1F;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .dark .form-input {
+      background: #2E1F1A;
+      color: #FDF7F0;
+      border-color: rgba(217, 140, 46, 0.3);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #D98C2E;
+      box-shadow: 0 0 0 3px rgba(217, 140, 46, 0.15);
+    }
+    .form-input::placeholder {
+      color: rgba(61, 43, 31, 0.4);
+    }
+    .dark .form-input::placeholder {
+      color: rgba(253, 247, 240, 0.35);
+    }
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(61, 43, 31, 0.6);
+      margin-bottom: 0.5rem;
+    }
+    .dark .form-label {
+      color: rgba(253, 247, 240, 0.6);
+    }
+
+    /* Subject pills */
+    .subject-pill {
+      cursor: pointer;
+      padding: 0.6rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 1.5px solid rgba(217, 140, 46, 0.25);
+      color: #3D2B1F;
+      background: transparent;
+    }
+    .dark .subject-pill {
+      color: #FDF7F0;
+      border-color: rgba(217, 140, 46, 0.3);
+    }
+    .subject-pill:hover {
+      border-color: #D98C2E;
+      color: #D98C2E;
+      transform: translateY(-2px);
+    }
+    .subject-pill.active {
+      background: #D98C2E;
+      color: white;
+      border-color: #D98C2E;
+      box-shadow: 0 6px 16px rgba(217, 140, 46, 0.35);
+    }
+
+    /* Map pin pulse */
+    .map-pin {
+      position: relative;
+    }
+    .map-pin::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid #D98C2E;
+      animation: pulseRing 2.5s ease-out infinite;
+    }
+
+    /* Studio hour row */
+    .hour-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      border-bottom: 1px dashed rgba(217, 140, 46, 0.2);
+    }
+    .hour-row:last-child {
+      border-bottom: none;
+    }
+    .hour-row.today {
+      color: #D98C2E;
+      font-weight: 700;
+    }
+    .hour-row.today .hour-day::before {
+      content: '● ';
+      color: #D98C2E;
+    }
+
+    /* Timeline/step for response */
+    .response-step {
+      position: relative;
+      padding-left: 3rem;
+      padding-bottom: 1.75rem;
+    }
+    .response-step:last-child {
+      padding-bottom: 0;
+    }
+    .response-step::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 32px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(217, 140, 46, 0.25);
+    }
+    .response-step:last-child::before {
+      display: none;
+    }
+    .response-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #D98C2E;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(217, 140, 46, 0.35);
+    }
+
+    /* FAQ mini accordion */
+    .faq-mini-item {
+      border-bottom: 1px solid rgba(217, 140, 46, 0.12);
+    }
+    .faq-mini-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #3D2B1F;
+      transition: color 0.2s;
+    }
+    .dark .faq-mini-trigger { color: #FDF7F0; }
+    .faq-mini-trigger:hover { color: #D98C2E; }
+    .faq-mini-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-mini-content.open { max-height: 200px; }
+    .faq-mini-trigger .chev {
+      transition: transform 0.3s;
+      color: #D98C2E;
+      font-size: 0.7rem;
+    }
+    .faq-mini-trigger.open .chev {
+      transform: rotate(180deg);
+    }
+
+    /* Vertical label */
+    .vertical-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing: 0.35em;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body class="warm-pattern">
+
+<!-- ======== NAVIGATION ======== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 dark:bg-[#2E1F1A]/95 backdrop-blur-md border-b border-cream/40 dark:border-cream/10 shadow-sm">
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0 relative">
+      <!-- Logo -->
+      <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+        <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 overflow-hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" class="w-full h-full p-1.5" fill="none">
+            <path d="M8 22 Q8 30 18 30 Q28 30 28 22 L26 22 Q26 27 18 27 Q10 27 10 22 Z" fill="white" opacity="0.9"/>
+            <ellipse cx="18" cy="22" rx="8" ry="2.5" fill="white" opacity="0.95"/>
+            <rect x="16.5" y="10" width="3" height="12" rx="1.5" fill="white" opacity="0.85"/>
+            <circle cx="18" cy="10" r="3" fill="white" opacity="0.9"/>
+            <ellipse cx="26" cy="12" rx="3.5" ry="2" transform="rotate(30 26 12)" fill="white" opacity="0.6"/>
+            <ellipse cx="29" cy="17" rx="2.8" ry="1.6" transform="rotate(-15 29 17)" fill="white" opacity="0.5"/>
+            <circle cx="12" cy="26" r="1" fill="white" opacity="0.5"/>
+            <circle cx="22" cy="27" r="1.2" fill="white" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center leading-none">
+          <span class="text-xl md:text-2xl font-display font-extrabold tracking-wider"><span class="text-[#3D2B1F] dark:text-cream">SPICE</span><span class="text-saffron">ORA</span></span>
+          <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-saffron mt-0.5">Spices &amp; Condiments</span>
+        </div>
+      </a>
+
+      <!-- Centered Desktop Navigation -->
+      <div class="hidden xl:flex items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2">
+        <div class="dropdown-studio">
+          <button class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition flex items-center gap-1 py-2 whitespace-nowrap text-base">
+            Home <i class="fas fa-chevron-down text-xs ms-1"></i>
+          </button>
+          <div class="dropdown-studio-menu">
+            <a class="dropdown-item" href="index.html"> Home 1</a>
+            <a class="dropdown-item" href="home2.html"> Home 2</a>
+          </div>
+        </div>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="about.html">About</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="products.html">Products</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="recipes.html">Recipes</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="gallery.html">Gallery</a>
+        <a class="nav-link text-[#3D2B1F] dark:text-cream hover:text-saffron transition whitespace-nowrap text-base" href="custom.html">Custom &amp; Bulk</a>
+        <a class="nav-link text-saffron font-medium transition whitespace-nowrap text-base" href="contact.html">Contact</a>
+      </div>
+
+      <!-- Desktop actions & Mobile toggle -->
+      <div class="flex items-center gap-3 xl:gap-4 ms-auto">
+        <a href="#enquiry" class="hidden xl:inline-flex btn-primary py-2 px-5 rounded-full text-sm font-medium items-center gap-2 shadow-md hover:scale-105 transition">
+          <i class="fas fa-envelope"></i> Enquire
+        </a>
+        <button id="theme-toggle" class="hidden xl:flex w-10 h-10 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron hover:scale-110 transition items-center justify-center">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i>
+        </button>
+        <button id="rtl-toggle" class="hidden xl:flex w-10 h-10 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron hover:scale-110 transition items-center justify-center font-bold text-base">
+          ⇄
+        </button>
+
+        <!-- Mobile toggle -->
+        <button id="mobile-toggle" class="xl:hidden w-10 h-10 rounded-full bg-saffron text-cream flex items-center justify-center shadow-md">
+          <i class="fas fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu-studio xl:hidden">
+      <div class="py-4 px-3 space-y-1">
+        <div class="py-1">
+          <button onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition cursor-pointer">
+            <span>Home</span>
+            <i id="home-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+          </button>
+          <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+            <a class="block py-2.5 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="index.html">Home 1</a>
+            <a class="block py-2.5 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="home2.html">Home 2</a>
+          </div>
+        </div>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="about.html">About</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="products.html">Products</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="recipes.html">Recipes</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="gallery.html">Gallery</a>
+        <a class="block py-3 px-4 font-medium text-[#3D2B1F] dark:text-cream hover:bg-cream/60 dark:hover:bg-cream/10 rounded-xl transition" href="custom.html">Custom &amp; Bulk</a>
+        <a class="block py-3 px-4 font-medium text-saffron border-l-4 border-saffron bg-saffron/5 rounded-xl transition" href="contact.html">Contact</a>
+        <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream/60 dark:border-cream/10">
+          <a class="text-center btn-primary py-2.5 rounded-full font-medium shadow-md flex items-center justify-center gap-2" href="#enquiry">
+            <i class="fas fa-envelope"></i> Enquire
+          </a>
+          <div class="flex gap-3">
+            <button id="mobile-theme-toggle" class="flex-1 py-2 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron text-sm font-medium flex items-center gap-2 justify-center">
+              <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i> Theme
+            </button>
+            <button id="mobile-rtl-toggle" class="flex-1 py-2 rounded-full bg-saffron/20 dark:bg-saffron/20 text-saffron text-sm font-medium flex items-center gap-2 justify-center">
+              ⇄ RTL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- ==================== CONTACT PAGE CONTENT =================== -->
+<!-- ============================================================ -->
+
+<!-- ===== 1. HERO — SPLIT WITH FLOATING CONTACT CARD ===== -->
+<section class="relative pt-32 pb-20 bg-[#1A120B] overflow-hidden">
+  <div class="absolute inset-0 opacity-25">
+    <img src="assets/spice-atelier-market.jpg" alt="Spice atelier" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1A120B] via-[#1A120B]/85 to-[#1A120B]/40"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <!-- Left content -->
+      <div class="lg:col-span-6 w-full">
+        <nav class="bg-transparent flex items-center gap-2 text-cream/50 text-xs font-medium mb-6">
+          <a href="index.html" class="hover:text-saffron transition">Home</a>
+          <i class="fas fa-chevron-right text-[8px]"></i>
+          <span class="text-saffron">Contact</span>
+        </nav>
+
+        <span class="inline-flex items-center gap-2 text-saffron text-xs font-bold tracking-[0.3em] uppercase mb-4">
+          <span class="w-8 h-[1px] bg-saffron inline-block"></span>
+          Say Hello
+        </span>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-cream leading-[1.0] md:leading-[0.95] mb-6">
+          Let's start<br/>
+          a <span class="text-saffron">conversation.</span>
+        </h1>
+        <p class="text-cream/60 text-base md:text-lg max-w-lg leading-relaxed mb-8">
+          Whether you're a home cook with a question, a chef planning a menu, 
+          or a brand exploring private label — we'd love to hear from you.
+        </p>
+
+        <!-- Quick contact row -->
+        <div class="flex flex-wrap gap-4 sm:gap-6 mb-8 lg:mb-0">
+          <a href="tel:+15552737742" class="flex items-center gap-3 group">
+            <span class="w-11 h-11 rounded-full bg-saffron/15 flex items-center justify-center group-hover:bg-saffron transition">
+              <i class="fas fa-phone text-saffron group-hover:text-cream transition text-sm"></i>
+            </span>
+            <div>
+              <p class="text-cream/50 text-[10px] uppercase tracking-wider font-bold">Call</p>
+              <p class="text-cream text-sm font-semibold">(555) 273-SPICE</p>
+            </div>
+          </a>
+          <a href="mailto:hello@spiceora.com" class="flex items-center gap-3 group">
+            <span class="w-11 h-11 rounded-full bg-saffron/15 flex items-center justify-center group-hover:bg-saffron transition">
+              <i class="fas fa-envelope text-saffron group-hover:text-cream transition text-sm"></i>
+            </span>
+            <div>
+              <p class="text-cream/50 text-[10px] uppercase tracking-wider font-bold">Email</p>
+              <p class="text-cream text-sm font-semibold">hello@spiceora.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right — floating info card -->
+      <div class="lg:col-span-6 w-full">
+        <div class="industrial-panel p-6 sm:p-8 md:p-10 w-full max-w-md mx-auto lg:ml-auto lg:mr-0" style="background: rgba(253,247,240,0.05); backdrop-filter: blur(20px); border-radius: 32px; border: 1px solid rgba(217,140,46,0.2);">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <span class="text-cream/70 text-xs font-semibold uppercase tracking-wider">We're online now</span>
+          </div>
+
+          <h3 class="text-cream font-display text-2xl font-bold mb-2">Atelier Concierge</h3>
+          <p class="text-cream/50 text-sm leading-relaxed mb-6">
+            Our team typically responds within 2 hours during atelier hours.
+          </p>
+
+          <div class="space-y-4 mb-6">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-clock text-saffron text-sm w-5"></i>
+              <span class="text-cream/70 text-sm">Mon–Sat · 9am – 6pm IST</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-map-marker-alt text-saffron text-sm w-5"></i>
+              <span class="text-cream/70 text-sm">42 Harvest Lane, Old Market District</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-globe text-saffron text-sm w-5"></i>
+              <span class="text-cream/70 text-sm">Shipping to 14 countries</span>
+            </div>
+          </div>
+
+          <a href="#enquiry" class="btn-primary w-full py-3 rounded-full inline-flex items-center justify-center gap-2 shadow-xl">
+            <i class="fas fa-paper-plane"></i> Send a Message
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. MULTI-CHANNEL CONTACT GRID ===== -->
+<section class="py-20 bg-[#FDF7F0] dark:bg-[#2E1F1A]">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mb-12">
+      <span class="text-saffron text-xs font-bold tracking-[0.3em] uppercase block mb-4">How to Reach Us</span>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-[#3D2B1F] dark:text-cream leading-[1.05]">
+        Pick your<br/>
+        <span class="text-saffron">channel.</span>
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 — Visit -->
+      <div class="contact-card">
+        <div class="contact-icon-box bg-saffron/15 text-saffron mb-5">
+          <i class="fas fa-store"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-[#3D2B1F] dark:text-cream mb-2">Visit the Atelier</h3>
+        <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-sm leading-relaxed mb-5 flex-1">
+          Smell the woodfire. Watch the mill turn. Taste the difference.
+        </p>
+        <p class="text-xs text-[#3D2B1F]/40 dark:text-cream/40 font-semibold mb-3">42 Harvest Lane, Old Market District</p>
+        <a href="#map" class="text-saffron font-semibold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all mt-auto">
+          Get Directions <i class="fas fa-arrow-right text-[9px]"></i>
+        </a>
+      </div>
+
+      <!-- Card 2 — Call -->
+      <div class="contact-card">
+        <div class="contact-icon-box bg-saffron/15 text-saffron mb-5">
+          <i class="fas fa-phone"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-[#3D2B1F] dark:text-cream mb-2">Call Us</h3>
+        <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-sm leading-relaxed mb-5 flex-1">
+          Speak to a real human. No hold music, no robot menus.
+        </p>
+        <p class="text-xs text-[#3D2B1F]/40 dark:text-cream/40 font-semibold mb-3">Mon–Sat · 9am – 6pm IST</p>
+        <a href="tel:+15552737742" class="text-saffron font-semibold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all mt-auto">
+          (555) 273-SPICE <i class="fas fa-arrow-right text-[9px]"></i>
+        </a>
+      </div>
+
+      <!-- Card 3 — Email -->
+      <div class="contact-card">
+        <div class="contact-icon-box bg-saffron/15 text-saffron mb-5">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-[#3D2B1F] dark:text-cream mb-2">Email Us</h3>
+        <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-sm leading-relaxed mb-5 flex-1">
+          For detailed enquiries, recipes, or wholesale requests.
+        </p>
+        <p class="text-xs text-[#3D2B1F]/40 dark:text-cream/40 font-semibold mb-3">Response within 2 hours</p>
+        <a href="mailto:hello@spiceora.com" class="text-saffron font-semibold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all mt-auto">
+          hello@spiceora.com <i class="fas fa-arrow-right text-[9px]"></i>
+        </a>
+      </div>
+
+      <!-- Card 4 — Wholesale -->
+      <div class="contact-card bg-[#1A120B] dark:bg-[#0D0907] !border-saffron/30">
+        <div class="contact-icon-box bg-saffron/20 text-saffron mb-5">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-cream mb-2">Wholesale Desk</h3>
+        <p class="text-cream/55 text-sm leading-relaxed mb-5 flex-1">
+          Bulk orders, private label, and custom blends.
+        </p>
+        <p class="text-xs text-cream/40 font-semibold mb-3">Dedicated B2B team</p>
+        <a href="custom.html" class="text-saffron font-semibold text-xs inline-flex items-center gap-1.5 hover:gap-2.5 transition-all mt-auto">
+          Wholesale Enquiry <i class="fas fa-arrow-right text-[9px]"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. ENQUIRY FORM + SIDEBAR ===== -->
+<section id="enquiry" class="py-20 bg-[#FAF3EC] dark:bg-[#251912]">
+  <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-10">
+
+      <!-- LEFT — FORM -->
+      <div class="lg:col-span-7">
+        <div class="card-spice p-8 md:p-10">
+          <span class="text-saffron text-xs font-bold tracking-[0.3em] uppercase block mb-4">Send a Message</span>
+          <h2 class="text-3xl md:text-4xl font-display font-extrabold text-[#3D2B1F] dark:text-cream leading-[1.1] mb-3">
+            Tell us what's<br/>
+            <span class="text-saffron">on your mind.</span>
+          </h2>
+          <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-sm leading-relaxed mb-8">
+            Fill in the form and our concierge team will respond within one business day.
+          </p>
+
+          <form onsubmit="event.preventDefault(); alert('Thank you — we\'ll be in touch within 24 hours.');">
+
+            <!-- Subject pills -->
+            <div class="mb-8">
+              <label class="form-label">What's this about? *</label>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" class="subject-pill active" onclick="selectSubject(this)">General Enquiry</button>
+                <button type="button" class="subject-pill" onclick="selectSubject(this)">Wholesale / Bulk</button>
+                <button type="button" class="subject-pill" onclick="selectSubject(this)">Custom Blend</button>
+                <button type="button" class="subject-pill" onclick="selectSubject(this)">Private Label</button>
+                <button type="button" class="subject-pill" onclick="selectSubject(this)">Press / Media</button>
+                <button type="button" class="subject-pill" onclick="selectSubject(this)">Visit / Tasting</button>
+              </div>
+            </div>
+
+            <!-- Row 1: Name + Email -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="form-label">Full Name *</label>
+                <input type="text" required placeholder="Your name" class="form-input">
+              </div>
+              <div>
+                <label class="form-label">Email Address *</label>
+                <input type="email" required placeholder="you@example.com" class="form-input">
+              </div>
+            </div>
+
+            <!-- Row 2: Phone + Company -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="form-label">Phone Number</label>
+                <input type="tel" placeholder="+91 XXXXX XXXXX" class="form-input">
+              </div>
+              <div>
+                <label class="form-label">Company / Kitchen</label>
+                <input type="text" placeholder="Business name (optional)" class="form-input">
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-6">
+              <label class="form-label">Your Message *</label>
+              <textarea required rows="6" placeholder="Tell us more about your enquiry..." class="form-input resize-none"></textarea>
+            </div>
+
+            <!-- Consent -->
+            <label class="flex items-start gap-3 mb-8 cursor-pointer">
+              <input type="checkbox" required class="mt-0.5 w-4 h-4 rounded border-saffron/40 text-saffron focus:ring-saffron">
+              <span class="text-xs text-[#3D2B1F]/60 dark:text-cream/60 leading-relaxed">
+                I agree to be contacted by SPICEORA regarding my enquiry. We never share your details.
+              </span>
+            </label>
+
+            <!-- Submit -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-saffron/15">
+              <p class="text-xs text-[#3D2B1F]/40 dark:text-cream/40 flex items-center gap-2">
+                <i class="fas fa-shield-halved text-saffron"></i>
+                Protected by our privacy promise
+              </p>
+              <button type="submit" class="btn-primary px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-lg w-full sm:w-auto justify-center">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT — SIDEBAR -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- Atelier hours -->
+        <div class="card-spice p-7">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-saffron/15 text-saffron flex items-center justify-center">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-[#3D2B1F] dark:text-cream">Atelier Hours</h3>
+          </div>
+          <div class="space-y-0">
+            <div class="hour-row">
+              <span class="hour-day text-sm text-[#3D2B1F]/70 dark:text-cream/70">Monday</span>
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">9:00 – 18:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day text-sm text-[#3D2B1F]/70 dark:text-cream/70">Tuesday</span>
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">9:00 – 18:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day text-sm text-[#3D2B1F]/70 dark:text-cream/70">Wednesday</span>
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">9:00 – 18:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day text-sm text-[#3D2B1F]/70 dark:text-cream/70">Thursday</span>
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">9:00 – 18:00</span>
+            </div>
+            <div class="hour-row today">
+              <span class="hour-day text-sm">Friday</span>
+              <span class="text-sm">9:00 – 18:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day text-sm text-[#3D2B1F]/70 dark:text-cream/70">Saturday</span>
+              <span class="text-sm text-[#3D2B1F]/70 dark:text-cream/70">10:00 – 16:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day text-sm text-[#3D2B1F]/40 dark:text-cream/40">Sunday</span>
+              <span class="text-sm text-[#3D2B1F]/40 dark:text-cream/40">Closed</span>
+            </div>
+          </div>
+          <p class="text-[10px] text-[#3D2B1F]/40 dark:text-cream/40 mt-4 text-center">
+            <i class="fas fa-circle text-emerald-500 text-[6px] mr-1"></i>
+            All times in IST (Indian Standard Time)
+          </p>
+        </div>
+
+        <!-- Response timeline -->
+        <div class="card-spice p-7">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-saffron/15 text-saffron flex items-center justify-center">
+              <i class="fas fa-route"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-[#3D2B1F] dark:text-cream">What Happens Next</h3>
+          </div>
+
+          <div>
+            <div class="response-step">
+              <span class="response-num">1</span>
+              <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-1">We read your message</h4>
+              <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-xs leading-relaxed">A real human reviews every enquiry — usually within 2 hours.</p>
+            </div>
+            <div class="response-step">
+              <span class="response-num">2</span>
+              <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-1">We reply with answers</h4>
+              <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-xs leading-relaxed">You'll receive a detailed response with next steps or samples.</p>
+            </div>
+            <div class="response-step">
+              <span class="response-num">3</span>
+              <h4 class="font-bold text-sm text-[#3D2B1F] dark:text-cream mb-1">We make it happen</h4>
+              <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-xs leading-relaxed">Whether it's an order, a blend, or a visit — we'll guide you through.</p>
+            </div>
+          </div>
+        </div>
+
+       
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. LOCATION / MAP PANEL ===== -->
+<section id="map" class="py-20 bg-[#1A120B] dark:bg-[#0D0907] relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_50%,rgba(217,140,46,0.08),transparent_65%)]"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <!-- Left — interactive map container -->
+      <div class="relative rounded-[36px] overflow-hidden border border-cream/10 shadow-2xl order-2 lg:order-1 h-[450px] bg-[#2E1F1A]">
+        <!-- Google Maps iframe -->
+        <iframe
+          title="SPICEORA Atelier Location Map"
+          src="https://maps.google.com/maps?q=Jew%20Town%20Spice%20Market%2C%20Mattancherry%2C%20Kochi%2C%20Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          class="w-full h-full border-0 filter contrast-[1.05] brightness-95"
+          loading="lazy"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <!-- Address floating card -->
+        <div class="absolute bottom-4 left-4 right-4 bg-[#1A120B]/95 backdrop-blur-md rounded-2xl p-4 border border-saffron/20 shadow-xl pointer-events-auto">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-saffron/15 flex items-center justify-center shrink-0">
+              <i class="fas fa-location-dot text-saffron"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-cream text-sm font-bold truncate">SPICEORA Atelier</p>
+              <p class="text-cream/60 text-xs truncate">42 Harvest Lane, Old Market District</p>
+            </div>
+            <a href="https://maps.google.com/?q=Jew+Town+Spice+Market+Mattancherry+Kochi" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-saffron text-cream flex items-center justify-center hover:scale-110 transition shrink-0" title="Open Google Maps">
+              <i class="fas fa-diamond-turn-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right — content -->
+      <div class="order-1 lg:order-2">
+        <span class="inline-flex items-center gap-2 text-saffron text-xs font-bold tracking-[0.3em] uppercase mb-4">
+          <span class="w-8 h-[1px] bg-saffron"></span>
+          Find Us
+        </span>
+        <h2 class="text-4xl md:text-5xl font-display font-extrabold text-cream leading-[1.05] mb-6">
+          Come see<br/>
+          where it's <span class="text-saffron">made.</span>
+        </h2>
+        <p class="text-cream/60 text-base leading-relaxed mb-8 max-w-md">
+          Our atelier sits in the heart of the Old Market District — a short walk from 
+          the spice bazaar and the waterfront. Walk-ins welcome during atelier hours.
+        </p>
+
+        <div class="space-y-5 mb-8">
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-full bg-saffron/15 flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fas fa-train text-saffron text-sm"></i>
+            </span>
+            <div>
+              <h4 class="text-cream font-bold text-sm mb-1">By Metro</h4>
+              <p class="text-cream/50 text-xs leading-relaxed">Old Market Station (Line 2) — 4-minute walk via Harvest Lane exit.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-full bg-saffron/15 flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fas fa-car text-saffron text-sm"></i>
+            </span>
+            <div>
+              <h4 class="text-cream font-bold text-sm mb-1">By Car</h4>
+              <p class="text-cream/50 text-xs leading-relaxed">Paid parking available at Market Square. Free 2-hour validation with any purchase.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-full bg-saffron/15 flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fas fa-bus text-saffron text-sm"></i>
+            </span>
+            <div>
+              <h4 class="text-cream font-bold text-sm mb-1">By Bus</h4>
+              <p class="text-cream/50 text-xs leading-relaxed">Routes 12, 34, and 78 stop directly outside the atelier entrance.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="btn-primary px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-xl">
+          <i class="fas fa-diamond-turn-right"></i> Open in Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. QUICK FAQ ===== -->
+<section class="py-20 bg-[#FDF7F0] dark:bg-[#2E1F1A]">
+  <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <!-- Left header -->
+      <div class="lg:col-span-4">
+        <span class="text-saffron text-xs font-bold tracking-[0.3em] uppercase block mb-4">Quick Answers</span>
+        <h2 class="text-4xl md:text-5xl font-display font-extrabold text-[#3D2B1F] dark:text-cream leading-[1.05] mb-5">
+          Before you<br/>
+          <span class="text-saffron">write to us.</span>
+        </h2>
+        <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-sm leading-relaxed mb-6">
+          A few things people usually ask. If your question isn't here, just send us a message.
+        </p>
+        <a href="#enquiry" class="btn-outline px-6 py-3 rounded-full inline-flex items-center gap-2 text-sm">
+          <i class="fas fa-envelope"></i> Ask Us Anything
+        </a>
+      </div>
+
+      <!-- Right FAQ -->
+      <div class="lg:col-span-8">
+        <div class="border-t border-saffron/15">
+          <div class="faq-mini-item">
+            <button type="button" class="faq-mini-trigger" onclick="toggleFaqMini(this)">
+              <span>Do you ship internationally?</span>
+              <i class="fas fa-chevron-down chev"></i>
+            </button>
+            <div class="faq-mini-content">
+              <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-sm leading-relaxed pb-5">
+                Yes. We ship retail orders to 14 countries and bulk orders worldwide. 
+                Shipping costs and delivery times vary by destination and are calculated at checkout.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-mini-item">
+            <button type="button" class="faq-mini-trigger" onclick="toggleFaqMini(this)">
+              <span>Can I visit the atelier without an appointment?</span>
+              <i class="fas fa-chevron-down chev"></i>
+            </button>
+            <div class="faq-mini-content">
+              <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-sm leading-relaxed pb-5">
+                Absolutely. Walk-ins are welcome during atelier hours (Mon–Sat). 
+                For tasting sessions or private blending workshops, we recommend booking ahead.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-mini-item">
+            <button type="button" class="faq-mini-trigger" onclick="toggleFaqMini(this)">
+              <span>How do I track my order?</span>
+              <i class="fas fa-chevron-down chev"></i>
+            </button>
+            <div class="faq-mini-content">
+              <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-sm leading-relaxed pb-5">
+                Once your order ships, you'll receive a tracking number via email and SMS. 
+                You can also log into your account to view live tracking for any order.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-mini-item">
+            <button type="button" class="faq-mini-trigger" onclick="toggleFaqMini(this)">
+              <span>Do you offer refunds or exchanges?</span>
+              <i class="fas fa-chevron-down chev"></i>
+            </button>
+            <div class="faq-mini-content">
+              <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-sm leading-relaxed pb-5">
+                If there's anything wrong with your order — wrong item, damaged jar, or a 
+                quality issue — contact us within 14 days and we'll make it right. No questions asked.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-mini-item" style="border-bottom: none;">
+            <button type="button" class="faq-mini-trigger" onclick="toggleFaqMini(this)">
+              <span>Can I request a custom blend for my restaurant?</span>
+              <i class="fas fa-chevron-down chev"></i>
+            </button>
+            <div class="faq-mini-content">
+              <p class="text-[#3D2B1F]/60 dark:text-cream/60 text-sm leading-relaxed pb-5">
+                Yes — that's our speciality. Head to the <a href="custom.html" class="text-saffron font-semibold hover:underline">Custom &amp; Bulk</a> page 
+                or select "Custom Blend" above and tell us what you're looking for.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. SOCIAL / FOLLOW STRIP ===== -->
+<section class="py-16 bg-[#FAF3EC] dark:bg-[#251912]">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="text-center md:text-left">
+        <h3 class="font-display text-2xl md:text-3xl font-bold text-[#3D2B1F] dark:text-cream mb-2">Prefer to follow along?</h3>
+        <p class="text-[#3D2B1F]/55 dark:text-cream/55 text-sm">Daily spice stories, behind-the-scenes, and recipe drops.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="#" class="social-icon-studio !w-12 !h-12 !text-lg">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-icon-studio !w-12 !h-12 !text-lg">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="#" class="social-icon-studio !w-12 !h-12 !text-lg">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-icon-studio !w-12 !h-12 !text-lg">
+          <i class="fab fa-youtube"></i>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. CLOSING CTA ===== -->
+<section class="py-20 bg-saffron dark:bg-[#2E1F1A] relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-cream/5"></div>
+  <div class="absolute -bottom-20 -left-16 w-64 h-64 rounded-full bg-cream/5"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-cream/15 flex items-center justify-center">
+        <i class="fas fa-mortar-pestle text-cream text-2xl"></i>
+      </div>
+
+      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-cream leading-[1.1] mb-4">
+        Every great dish<br/>starts with a hello.
+      </h2>
+      <p class="text-cream/70 text-base md:text-lg mb-8 max-w-md mx-auto leading-relaxed">
+        Whether it's a recipe question or a wholesale enquiry — 
+        we're just one message away.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#enquiry" class="bg-cream text-saffron font-bold px-8 py-3.5 rounded-full hover:scale-105 transition shadow-lg inline-flex items-center gap-2">
+          <i class="fas fa-paper-plane"></i> Send a Message
+        </a>
+        <a href="tel:+15552737742" class="border-2 border-cream text-cream px-8 py-3.5 rounded-full font-semibold hover:bg-cream hover:text-saffron transition inline-flex items-center gap-2">
+          <i class="fas fa-phone"></i> Call the Atelier
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ================== END CONTACT PAGE CONTENT ================= -->
+<!-- ============================================================ -->
+
+<!-- ======== FOOTER ======== -->
+<footer class="bg-cream dark:bg-[#2E1F1A] text-[#3D2B1F] dark:text-cream pt-16 pb-8 border-t-4 border-saffron transition-colors duration-300">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="text-center md:text-start">
+        <a href="index.html" class="inline-flex items-center justify-center md:justify-start gap-3 mb-6 group hover:opacity-90 transition">
+          <div class="w-9 h-9 md:w-10 md:h-10 bg-saffron rounded-xl flex items-center justify-center shadow-lg overflow-hidden group-hover:scale-105 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" class="w-full h-full p-1.5" fill="none">
+              <path d="M8 22 Q8 30 18 30 Q28 30 28 22 L26 22 Q26 27 18 27 Q10 27 10 22 Z" fill="white" opacity="0.9"/>
+              <ellipse cx="18" cy="22" rx="8" ry="2.5" fill="white" opacity="0.95"/>
+              <rect x="16.5" y="10" width="3" height="12" rx="1.5" fill="white" opacity="0.85"/>
+              <circle cx="18" cy="10" r="3" fill="white" opacity="0.9"/>
+              <ellipse cx="26" cy="12" rx="3.5" ry="2" transform="rotate(30 26 12)" fill="white" opacity="0.6"/>
+              <ellipse cx="29" cy="17" rx="2.8" ry="1.6" transform="rotate(-15 29 17)" fill="white" opacity="0.5"/>
+              <circle cx="12" cy="26" r="1" fill="white" opacity="0.5"/>
+              <circle cx="22" cy="27" r="1.2" fill="white" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="flex flex-col text-left leading-none">
+            <span class="text-xl md:text-2xl font-display font-extrabold tracking-wider"><span class="text-[#3D2B1F] dark:text-cream">SPICE</span><span class="text-saffron">ORA</span></span>
+            <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase text-saffron mt-0.5">Spices &amp; Condiments</span>
+          </div>
+        </a>
+        <p class="mb-5 text-[#3D2B1F] dark:text-cream text-sm">Heritage spice blends &amp; condiments. Stone-ground, small-batch, full of aroma.</p>
+        <div class="flex justify-center md:justify-start gap-3">
+          <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon-studio"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Explore</h4>
+        <ul class="space-y-2">
+          <li><a href="products.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Products</a></li>
+          <li><a href="recipes.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Recipes</a></li>
+          <li><a href="custom.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Custom &amp; Bulk</a></li>
+          <li><a href="gallery.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Community</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">About</a></li>
+          <li><a href="contact.html" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Contact</a></li>
+          <li><a href="#" class="hover:text-saffron transition block text-[#3D2B1F] dark:text-cream">Careers</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h4 class="text-[#3D2B1F] dark:text-saffron font-bold text-lg mb-5 uppercase tracking-wider">Spice Atelier</h4>
+        <ul class="space-y-3">
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-map-marker-alt text-saffron mt-1"></i><span>42 Harvest Lane, Old Market District</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-phone text-saffron"></i><span>(555) 273-SPICE</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream"><i class="fas fa-envelope text-saffron"></i><span>hello@spiceora.com</span></li>
+          <li class="flex justify-center md:justify-start gap-3 text-[#3D2B1F] dark:text-cream text-sm"><i class="fas fa-clock text-saffron"></i><span>Mon–Sat 9am – 6pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-cream/60 dark:border-cream/10 text-center text-sm text-[#3D2B1F] dark:text-cream">
+      <p>&copy; 2026 SPICEORA · Spices &amp; Condiments. <i class="fas fa-mortar-pestle text-saffron mx-1"></i> Crafted with spice &amp; soul.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== SCRIPTS ======== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle
+    const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+    themeBtns.forEach(btn => {
+      btn?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      });
+    });
+    if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+    // RTL
+    function setRTL(isRTL) {
+      const html = document.documentElement;
+      if (isRTL === 'rtl' || isRTL === true) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); } 
+      else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+    }
+    const savedDir = localStorage.getItem('dir');
+    if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+    else document.documentElement.setAttribute('dir', 'ltr');
+
+    const rtlBtn = document.getElementById('rtl-toggle');
+    if (rtlBtn) {
+      rtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir');
+        setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+      });
+    }
+    const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+    if (mobileRtlBtn) {
+      mobileRtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir');
+        setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        if (mobileMenu && mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          if (mobileToggle && mobileToggle.querySelector('i')) {
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+          }
+        }
+      });
+    }
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        const icon = mobileToggle.querySelector('i');
+        if (mobileMenu.classList.contains('open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          if (mobileToggle.querySelector('i')) {
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
+    // Subject pill selection
+    window.selectSubject = function(el) {
+      document.querySelectorAll('.subject-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+    };
+
+    // Mini FAQ accordion
+    window.toggleFaqMini = function(trigger) {
+      const content = trigger.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+      document.querySelectorAll('.faq-mini-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.faq-mini-trigger').forEach(t => t.classList.remove('open'));
+      if (!isOpen) {
+        content.classList.add('open');
+        trigger.classList.add('open');
+      }
+    };
+
+    // Open first mini FAQ
+    const firstFaq = document.querySelector('.faq-mini-trigger');
+    if (firstFaq) {
+      firstFaq.classList.add('open');
+      firstFaq.nextElementSibling.classList.add('open');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
